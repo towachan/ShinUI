@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'shin-ui',
+    podModulePrefix: 'shin-ui/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
