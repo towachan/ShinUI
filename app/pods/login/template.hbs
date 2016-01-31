@@ -1,0 +1,33 @@
+
+<div class="container LoginBox">
+		<div class="alert login">
+		  {{#if validateResult}}
+		 	<strong>Welcome!</strong> Please Login with your Staff ID.
+		  {{else}}
+		  	<button type="button" class="close" data-dismiss="alert">&times;</button>
+		  	<strong>Warning!</strong> {{errorMessage}}
+		  {{/if}}
+		</div>
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label for="inputStaffID" class="control-label">Staff ID</label>
+				<div class="controls">
+					{{input type="text" placeholder="Staff ID" valueBinding="staffId"}}
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label for="inputPassword" class="control-label">Password</label>
+				<div class="controls">
+					{{input type="password" placeholder="Password" valueBinding="password"}}
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<button {{action "validate"}} class="btn"  ><i class="icon-off"></i> Login</button>
+				</div>
+			</div>
+		</form>
+</div>
+
