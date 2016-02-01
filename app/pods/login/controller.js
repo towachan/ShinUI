@@ -12,14 +12,14 @@ export default Ember.Controller.extend({
 				this.set('errorMessage', "Please input staff id and password!");
 			}
 			else{
-				Ember.$.ajax('userValidation', { 
+				Ember.$.ajax('requests/userValidation', { 
 					data: { 
 						staffId: this.get('staffId'), 
 						password: this.get('password') 
 					}, 
 					context: this}).then(function(response){
 						console.log(response);
-						if(response.result){
+						if(response.result.result){
 							this.set('validateResult',true);
 							this.transitionToRoute('home');
 						}

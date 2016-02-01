@@ -2,49 +2,25 @@
 module.exports = function(app) {
   var express = require('express');
   var Router = express.Router();
-  var url = require('url');
+
 
 
   Router.get('/', function(req, res) {
-    var url_parts = url.parse(req.url, true);
-    var query = url_parts.query;
-    var result = false;
-    var staffName = "";
-    // console.log(query);
-    var users = [
-      {
-        "staffId": "123",
-        "password": "abc",
-        "staffName": "testUser1"
-      },
-      {
-        "staffId": "456",
-        "password": "aaa",
-        "staffName": "testUser2"
-      },
-      ];
 
-      for(var i=0; i<users.length; i++){
-        if(query.staffId.toString() === users[i].staffId.toString() &&
-            query.password.toString() === users[i].password.toString()){ 
-          result = true;
-          staffName = users[i].staffName;
-          break;
-        }
-      }
 
-    res.send({result: result, staffName: staffName });
+    res.send({re:"requests"});
   });
 
   Router.post('/', function(req, res) {
     res.status(201).end();
   });
 
-  Router.get('/:id', function(req, res) {
+  Router.get('/:cmd', function(req, res) {
+    console.log(req.params);
+    var handler = require('../handlers/' + req.params.cmd);
+    var result = handler.result(req);
     res.send({
-      'user': {
-        id: req.params.id
-      }
+      result
     });
   });
 
@@ -70,5 +46,5 @@ module.exports = function(app) {
   // this mock uncommenting the following line:
   //
   //app.use('/api/user', require('body-parser'));
-  app.use('/userValidation', Router);
+  app.use('/requests', Router);
 };
