@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
 	staffId:"",
 	password:"",
 	errorMessage:"",
+	applicationController: Ember.inject.controller('application'),
+	homeController: Ember.inject.controller('home'),
 	actions:{
 		validate: function(){
 			if(this.get('staffId').toString() === "" || this.get('password').toString() === ""){
@@ -18,10 +20,18 @@ export default Ember.Controller.extend({
 						password: this.get('password') 
 					}, 
 					context: this}).then(function(response){
-						console.log(response);
 						if(response.result.result){
 							this.set('validateResult',true);
-							this.transitionToRoute('home');
+							document.cookie="sessionId=" + response.result.sessionId.toString();
+
+							// this.get('homeController').set('userType', parseInt(response.result.userType));
+							// if(this.get('homeController').get('userType') === 0){
+							// 	this.get('homeController').set('isAdmin', true)
+							// }
+							// this.get('applicationController').set('userName', response.result.staffName.toString());
+
+							// this.transitionToRoute('home');
+							window.location = 'home/userInfo';
 						}
 						else{
 							this.set('validateResult',false);

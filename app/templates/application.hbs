@@ -8,6 +8,15 @@
       </button>
       <a class="brand" href="#">System name</a>
       <div class="nav-collapse collapse">
+      {{#if userName}}
+        <p class="navbar-text pull-right">
+          Logged in as {{userName}}      <button class="logout" {{action "logout"}}><i  class="icon-off icon-white" title="Log out"></i></button>
+        </p>
+      {{else}}
+        <p class="navbar-text pull-right">
+          Please log in
+        </p>
+      {{/if}}
         <ul class="nav">
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>

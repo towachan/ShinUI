@@ -16,7 +16,8 @@ module.exports = function(app) {
   });
 
   Router.get('/:cmd', function(req, res) {
-    console.log(req.params);
+    // console.log(req.params);
+    console.log(req.cookies);
     var handler = require('../handlers/' + req.params.cmd);
     var result = handler.result(req);
     res.send({

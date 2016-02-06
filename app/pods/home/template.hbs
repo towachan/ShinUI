@@ -1,5 +1,34 @@
-This
-<br>is
-<br>home
-<br>page.
-{{outlet}}
+<div class="container-fluid topBox">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+        <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+	            <li class={{classNames.userInfoClass}} ><a href="home/userInfo">User Information</a></li>
+	            <li class="nav-header">My Leave </li>
+	            <li class={{classNames.leaveListClass}}><a href="home/leaves">My Leave List</a></li>
+	            <li><a href="#">{{model.user.staffId}}</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li class="nav-header">Sidebar</li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            {{#if isAdmin}}
+	            <li class="nav-header">Admin</li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            <li><a href="#">Link</a></li>
+	            {{/if}}
+            </ul>
+        </div><!--/.well -->
+    </div>
+    <div class="span10">
+      <!--Body content-->
+      {{outlet}}
+    </div>
+  </div>
+</div>
+

@@ -17,3 +17,57 @@
 	width: 300px;
     margin-left: 80px;
 }
+
+.topBox {
+    margin-top:70px;
+}
+
+i.icon-off.icon-white{
+    cursor: pointer;
+}
+
+.logout{
+    background: transparent;
+    border: none !important;
+}
+
+span   {
+    background-color: #006dcc!important;
+    color: white;
+    font-family: sans-serif;
+    margin-left: 20px!important;
+    border-radius: 4px 0 0 4px!important;
+}
+
+td.calendar{
+    width: 50px;
+    height: 100px;
+    font-size:30px;
+}
+
+td.rest{
+    background-color:pink;
+}
+
+td.notCurrent{
+    color: grey;
+}
+
+.calendarMonths{
+    float: right;
+    font-size: 35px;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 50%;
+}
+
+.calendarYear{
+    float: right;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.calendarbtn{
+    float: left;
+    margin-bottom: 10px;
+}
