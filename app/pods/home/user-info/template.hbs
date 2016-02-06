@@ -1,0 +1,78 @@
+<div class="well">
+	<div class="input-prepend input-append ">
+		<span class="userInfoSpan add-on ">Staff ID</span>
+		<input class="span2 " type="text" size="100" value={{model.user.staffId}} disabled>
+		<span class="userInfoSpan add-on ">Staff Name</span>
+		<input class="span2"  type="text" size="100" value={{model.user.staffName}} disabled>
+		<span class="userInfoSpan add-on ">Title</span>
+		<input class="span2"  type="text" size="100" value={{model.user.title}} disabled>
+		<span class="userInfoSpan add-on ">Total Leave</span>
+		<input class="span2"  type="text" size="100" value={{model.totalLeave}} disabled>
+	</div>
+	<p class="divider"></p>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Leave Type</th>
+				<th>Unit</th>
+				<th>Entitlement</th>
+				<th>Pending</th>
+				<th>Taken</th>
+				<th>Balance</th>
+				<th>Expiration Date</th>
+			</tr>
+		</thead>
+		{{#each model.leaveEntitlements as |entl| }}
+			<tr>
+				<td>{{entl.type}}</td>
+				<td>{{entl.unit}}</td>
+				<td>{{entl.entitlement}}</td>
+				<td>{{entl.pending}}</td>
+				<td>{{entl.taken}}</td>
+				<td>{{entl.balance}}</td>
+				<td>{{entl.expirationDate}}</td>
+			</tr>
+		{{/each}}
+	</table>
+</div>
+
+<div class="well">
+	<div class="calendarbtn">
+		<button class="btn" {{action 'lastMonth'}}><i class="icon-chevron-left"></i></button> 
+		<button class="btn" {{action 'nextMonth'}}><i class="icon-chevron-right"></i></button>
+	</div>
+	<div class="calendarMonths">
+		{{currentMonth}}
+	</div>
+	<div class="calendarYear">
+		{{displayYear}}
+	</div>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Sun</th>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+				<th>Fri</th>
+				<th>Sat</th>
+			</tr>
+			{{#each calendar as |week| }}
+			<tr>
+				<td class={{week.Sun.dayType}}>{{week.Sun.date}}</td>
+				<td class={{week.Mon.dayType}}>{{week.Mon.date}}</td>
+				<td class={{week.Tue.dayType}}>{{week.Tue.date}}</td>
+				<td class={{week.Wed.dayType}}>{{week.Wed.date}}</td>
+				<td class={{week.Thu.dayType}}>{{week.Thu.date}}</td>
+				<td class={{week.Fri.dayType}}>{{week.Fri.date}}</td>
+				<td class={{week.Sat.dayType}}>{{week.Sat.date}}</td>
+			</tr>
+			{{/each}}
+		</thead>
+	</table>
+</div>
+
+
+{{outlet}}
