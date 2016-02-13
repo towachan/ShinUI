@@ -1,17 +1,28 @@
+
 <div class="well">
-	<table class="table table-bordered">
+	<table class="table ">
 		<thead>
 			<tr>
 				<th>Leave ID</th>
-				<th>Staff Name</th>
+				<th>Staff ID</th>
 				<th>Status</th>
 				<th>Start Date</th>
 				<th>End Date</th>
 				<th>Leave Type</th>
 			</tr>
 		</thead>
+		{{#each model.leaves as |leave| }}
+			<tr class="detail" {{action 'leaveDetail' leave.leaveId}}>
+				<td>{{leave.leaveId}}</td>
+				<td>{{leave.user}}</td>
+				<td>{{leave.status}}</td>
+				<td>{{leave.startDate}}</td>
+				<td>{{leave.endDate}}</td>
+				<td>{{leave.type}}</td>
+			</tr>
+		{{/each}}
 	</table>
 </div>
 
 
-{{outlet}}
+

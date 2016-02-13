@@ -9,9 +9,8 @@ Router.map(function() {
   this.route('login');
   this.route('home', function() {
     this.route('userInfo');
-  	this.route('leaves',	function() {
-      this.route('detail');
-    });
+    this.route('leaves');
+    this.route('leaveDetail',{path:"leaveDetail/:leaveId"});
   });
 });
 

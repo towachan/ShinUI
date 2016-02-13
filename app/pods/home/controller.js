@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
 		leaveListClass: "",
 	},
 
-
 	applicationController: Ember.inject.controller('application'),
 	initialize: function(){
 		var classNames = this.get('classNames');
@@ -14,6 +13,5 @@ export default Ember.Controller.extend({
 			classNames[c] = classNames[c].toString().replace("active", "");
 		}
 		this.set('classNames', classNames);
-		console.log('application init finished');
 	}.on('init')
 });

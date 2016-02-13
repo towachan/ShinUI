@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
 
 
 
-			if(firstDayWeek == 6 || firstDayWeek ==0){
+			if(firstDayWeek === 6 || firstDayWeek ===0){
 				dayType[i] = "calendar rest";
 			}
 			else{
@@ -43,13 +43,13 @@ export default Ember.Controller.extend({
 				dayType[i] = "calendar rest";
 			}
 
-			if(Ember.$.inArray(i,work) > -1 && (firstDayWeek == 6 || firstDayWeek ==0)){
+			if(Ember.$.inArray(i,work) > -1 && (firstDayWeek === 6 || firstDayWeek ===0)){
 				dayType[i] = "calendar";
 			}
 
 			month[i] = firstDayWeek;
 			week[firstDayWeek] = {};
-			if(date.getFullYear() == displayYear && date.getMonth() == displayMonth && date.getDate() == i)
+			if(date.getFullYear() === displayYear && date.getMonth() === displayMonth && date.getDate() === i)
 			{
 				week[firstDayWeek].date = i + "*";
 			}
@@ -59,7 +59,7 @@ export default Ember.Controller.extend({
 
 			week[firstDayWeek].dayType = dayType[i];
 			firstDayWeek++;
-			if(firstDayWeek > 6 || i == lastDay.getDate()){
+			if(firstDayWeek > 6 || i === lastDay.getDate()){
 				firstDayWeek = firstDayWeek - 7;
 				calendar.push(week);
 				week = {};
@@ -71,10 +71,10 @@ export default Ember.Controller.extend({
 		var lastMonlastDay = new Date(displayYear, displayMonth, 0).getDate();
 		var nextMonFirstDay = 1;
 
-		var firstWeek = calendar[0]
-		for(var i=0;i<7-firstWeekLength;i++){
+		var firstWeek = calendar[0];
+		for(i=0;i<7-firstWeekLength;i++){
 			firstWeek[i] = {};
-			if(i == 0 || i == 6){
+			if(i === 0 || i === 6){
 				firstWeek[i].dayType = "calendar notCurrent rest";
 			}
 			else{
@@ -85,10 +85,10 @@ export default Ember.Controller.extend({
 		}
 
 		var lastWeek = 	calendar[calendar.length-1];
-		for(var i=lastWeekLength;i<7;i++){
+		for(i=lastWeekLength;i<7;i++){
 			lastWeek[i] = {};
 			lastWeek[i].date = nextMonFirstDay;
-			if(i == 0 || i == 6){
+			if(i === 0 || i === 6){
 				lastWeek[i].dayType = "calendar notCurrent rest";
 			}
 			else{
@@ -96,7 +96,7 @@ export default Ember.Controller.extend({
 			}
 			nextMonFirstDay++;
 		}
-		for(var i=0; i< calendar.length; i++){
+		for(i=0; i< calendar.length; i++){
 			var currentWeek = calendar[i];
 			currentWeek.Sun = {};
 			currentWeek.Mon = {};
@@ -126,7 +126,7 @@ export default Ember.Controller.extend({
 		lastMonth: function(){
 			var displayMonth = this.get('displayMonth');
 			var displayYear = this.get('displayYear');
-			if(displayMonth == 0){
+			if(displayMonth === 0){
 				displayMonth = 12;
 				this.set('displayYear', displayYear-1);
 			}
@@ -135,7 +135,7 @@ export default Ember.Controller.extend({
 		nextMonth: function(){
 			var displayMonth = this.get('displayMonth');
 			var displayYear = this.get('displayYear');
-			if(displayMonth == 11){
+			if(displayMonth === 11){
 				displayMonth = -1;
 				this.set('displayYear', displayYear+1);
 			}

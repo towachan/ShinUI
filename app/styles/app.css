@@ -71,3 +71,9 @@ td.notCurrent{
     float: left;
     margin-bottom: 10px;
 }
+
+.detail:hover{
+    cursor: pointer;
+    background-color: skyblue;
+    
+}

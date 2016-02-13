@@ -7,7 +7,7 @@
 	            <li class={{classNames.userInfoClass}} ><a href="home/userInfo">User Information</a></li>
 	            <li class="nav-header">My Leave </li>
 	            <li class={{classNames.leaveListClass}}><a href="home/leaves">My Leave List</a></li>
-	            <li><a href="#">{{model.user.staffId}}</a></li>
+	            <li><a href="#">link</a></li>
 	            <li><a href="#">Link</a></li>
 	            <li class="nav-header">Sidebar</li>
 	            <li><a href="#">Link</a></li>
@@ -16,12 +16,12 @@
 	            <li><a href="#">Link</a></li>
 	            <li><a href="#">Link</a></li>
 	            <li><a href="#">Link</a></li>
-	            {{#if isAdmin}}
+	            {{#unless model.userType}}
 	            <li class="nav-header">Admin</li>
 	            <li><a href="#">Link</a></li>
 	            <li><a href="#">Link</a></li>
 	            <li><a href="#">Link</a></li>
-	            {{/if}}
+	            {{/unless}}
             </ul>
         </div><!--/.well -->
     </div>

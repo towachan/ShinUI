@@ -19,10 +19,16 @@ module.exports = function(app) {
     // console.log(req.params);
     console.log(req.cookies);
     var handler = require('../handlers/' + req.params.cmd);
-    var result = handler.result(req);
-    res.send({
-      result
-    });
+    // var result = handler.result(req);
+    res.send(handler.result(req));
+  });
+
+  Router.get('/leaves/:id', function(req, res) {
+    console.log(req.params);
+    console.log(req.cookies);
+    var handler = require('../handlers/leaveDetail');
+    // var result = handler.result(req);
+    res.send(handler.result(req));
   });
 
   Router.put('/:id', function(req, res) {
