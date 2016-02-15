@@ -1,28 +1,8 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="#">System name</a>
-      <div class="nav-collapse collapse">
-      {{#if userName}}
-        <p class="navbar-text pull-right">
-          Logged in as {{userName}}      <button class="logout" {{action "logout"}}><i  class="icon-off icon-white" title="Log out"></i></button>
-        </p>
-      {{else}}
-        <p class="navbar-text pull-right">
-          Please log in
-        </p>
-      {{/if}}
-        <ul class="nav">
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+
+  {{outlet}} 
+
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">© 2016 Company, Inc.</p>
       </div>
-    </div>
-  </div>
-</div>
-{{outlet}} 
+</footer>

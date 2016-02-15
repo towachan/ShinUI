@@ -9,9 +9,18 @@ module.exports = function(defaults) {
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
-  // app.import('bower_components/bootstrap/dist/css/bootstrap.css');
-  // app.import('bower_components/bootstrap/dist/css/bootstrap-responsive.css');
-  // app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css', {destDir: 'css'});
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', { destDir: 'css' });
+    app.import('bower_components/bootstrap/dist/css/bootstrap.min.css', {destDir: 'css'});
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css.map', { destDir: 'css' });
+  app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css', {destDir: 'css'});
+  app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css.map', { destDir: 'css' });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', { destDir: 'fonts' });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf', { destDir: 'fonts' });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg', { destDir: 'fonts' });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', { destDir: 'fonts' });
+  app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', { destDir: 'fonts' });
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
   // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings.png',{destDir: 'img'});
   // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings-white.png',{destDir: 'img'});
 
