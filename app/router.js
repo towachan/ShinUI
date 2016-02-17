@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('userInfo');
     this.route('leaves');
     this.route('leaveDetail',{path:"leaveDetail/:leaveId"});
+	this.route('createLeave');
   });
 });
 

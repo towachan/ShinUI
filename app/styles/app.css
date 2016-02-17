@@ -110,7 +110,7 @@ td.notCurrent{
   border-top-right-radius: 0;
 }
 
-.bg-success,.bg-danger {
+.bg-success,.bg-danger,.alert {
     padding: 15px;
     text-align: center;
 }
@@ -133,7 +133,7 @@ td.notCurrent{
 
 }
 
-.btn,.panel-heading,.well,a {
+.btn,.panel-heading,.well,a,.alert {
   background-image: none!important;
 }
 
@@ -147,4 +147,8 @@ td.notCurrent{
 
 .contentbox {
   min-height: 700px;
+}
+
+.mandatory {
+  color: red;
 }
