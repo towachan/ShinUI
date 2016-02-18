@@ -5,22 +5,22 @@ function getLeaves(req){
     		result: true,
     		data:{
     			leaves:[
-    			{
-					"user" : "123",
-					"leaveId" : "1",
-					"status" : "approved",
-					"type" : "annual",
-					"startDate" : "2015-9-15",
-					"endDate" : "2015-9-16"
-				},
 				{
-					"user" : "123",
-					"leaveId" : "2",
-					"status" : "approved",
-					"type" : "sick",
-					"startDate" : "2015-10-15",
-					"endDate" : "2015-10-16"
-				}]
+					"staffId":"123",
+					"staffName":"testUser1",
+					"title":"ASE",
+					"startDate":"2016/02/23",
+					"startHalf":"AM",
+					"endDate":"2016/02/25",
+					"endHalf":"AM",
+					"leaveDays":"5",
+					"leaveType":"Annual",
+					"comments":"hahahahahha",
+					"createTime":"2016/02/18 10:32:14",
+					"leaveId":"leave_160218103215",
+					"status":"pending"
+				}
+				]
 			}
     	};
     }

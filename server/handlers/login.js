@@ -11,13 +11,13 @@ function getResult(req){
     // console.log(query);
     var users = [
       {
-        "staffId": "123",
+        "staffId": "1234567",
         "password": "abc",
         "staffName": "testUser1",
         "userType": "0"
       },
       {
-        "staffId": "456",
+        "staffId": "222",
         "password": "aaa",
         "staffName": "testUser2",
         "userType": "1"

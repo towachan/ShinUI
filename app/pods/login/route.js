@@ -21,7 +21,7 @@ export default Ember.Route.extend({
 							controller.set('validateResult',true);
 							document.cookie="sessionId=" + response.data.sessionId.toString();
 							// console.log(document.cookie);
-							window.location = '/home/userInfo';
+							window.location = '/home/mainPage';
 						}
 						else{
 							controller.set('validateResult',false);

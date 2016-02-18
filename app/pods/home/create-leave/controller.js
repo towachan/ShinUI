@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
 	// errorMsg: null,
 	isError: null,
 	dateValidation: null,
+	comments: null,
 	initialize: function(){
 		Ember.$.fn.datepicker.defaults.format = "yyyy/mm/dd";
 	}.on('init'),
@@ -159,6 +160,41 @@ export default Ember.Controller.extend({
 
 		submit: function(){
 
+			var data = {
+				staffId: this.get('model').user.staffId,
+				staffName: this.get('model').user.staffName,
+				title: this.get('model').user.title,
+				startDate: this.get('startDate'),
+				startHalf: this.get('startHalf'),
+				endDate: this.get('endDate'),
+				endHalf: this.get('endHalf'),
+				leaveDays: this.get('leaveDays'),
+				leaveType: this.get('leaveType'),
+				comments: this.get('comments'),
+				createTime: moment().format("YYYY/MM/DD HH:mm:ss")
+			};
+
+			console.log(data);
+
+			Ember.$.ajax({
+				url: 'requests/createLeave',
+				context: this,
+				data: data,
+				success: function(response){
+					if(response.result){
+						console.log("success!");
+						var msg = response.message + "Leave ID is " + response.leaveId +".";
+						this.set('requestResult', response.result);
+					}
+					else{
+						var msg = response.message;
+						this.set('requestResult', response.result);
+					}
+					this.set('submitMsg',msg);
+					Ember.$('#alertModal').modal();
+
+				}
+			});
 
 		}
 	}

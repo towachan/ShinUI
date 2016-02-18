@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 				success: function(response){
 					var controller = this.controller;
 					if(response.result){
-						this.controllerFor('application').set('userName', response.data.userName.toString());
+						 // this.controllerFor('home/leaveDetail').set('currentStaff', response.data.staffId);
 						controller.set('model', response.data);
 					}
 					else{

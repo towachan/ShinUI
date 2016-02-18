@@ -8,10 +8,11 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('home', function() {
-    this.route('userInfo');
+    this.route('userInfo',{path: "mainPage"});
     this.route('leaves');
     this.route('leaveDetail',{path:"leaveDetail/:leaveId"});
-	this.route('createLeave');
+    this.route('createLeave');
+    this.route('approveLeave');
   });
 });
 

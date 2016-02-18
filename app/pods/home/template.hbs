@@ -21,22 +21,20 @@
           <button {{action 'logout'}} type="button" class="btn btn-default btn-xs navbar-btn navbar-right">
             <span class="glyphicon glyphicon-off" aria-hidden="true"></span> 
           </button>
-          <p class="navbar-text navbar-right">Logged in as {{model.userName}}&nbsp;  </p>
+          <p class="navbar-text navbar-right">Logged in as {{model.staffName}}&nbsp;  </p>
           <ul class="nav navbar-nav">
-            <li class={{classNames.userInfoClass}}><a href="/home/userInfo">Home</a></li>
+            <li class={{classNames.userInfoClass}}><a href="/home/mainPage">Home</a></li>
 
             <li class={{classNames.leaveListClass}}>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Leaves<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/home/leaves">My Leave List</a></li>
-                <!-- <li role="separator" class="divider"></li> -->
                 <li><a href="/home/createLeave">Create Leave Request</a></li>
-                <!-- <li role="separator" class="divider"></li> -->
-                <li><a href="/home/leaves">Cancel Leave Request</a></li>
               </ul>
             </li>
 
-            <li ><a href="#">Approve Leave Requests</a></li>
+
+            <li class={{classNames.approveReqClass}}><a href="/home/approveLeave" >Approve Leave Requests</a></li>
 
 
             <li ><a href="#">Support</a></li>

@@ -152,3 +152,18 @@ td.notCurrent{
 .mandatory {
   color: red;
 }
+
+.detail-label {
+  background-color: #337ab7;
+  color: white;
+   border-color:#337ab7;
+}
+
+.buffer {
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+
+.right {
+  float: right;
+}
