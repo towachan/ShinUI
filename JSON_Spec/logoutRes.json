@@ -1,0 +1,14 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "logoutRes",
+	"description" : "Log out json",
+	"type" : "object",
+	"properties" : {
+		"result" : {
+			"description" : "Logout request result",
+			"type" : "boolean"
+		},
+	},
+	"required" : ["result"]
+
+}

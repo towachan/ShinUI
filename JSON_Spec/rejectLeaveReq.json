@@ -1,0 +1,25 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "rejectLeaveReq",
+	"description" : "Reject leave request",
+	"type" : "object",
+	"properties" : {
+		"cmd" : {
+			"description" : "Request cmd",
+			"type" : "string",
+			"enum" :["rejectLeave"]
+		},
+		"data" : {
+			"description" : "Request data",
+			"type" : "object",
+			"properties" : {
+				"leaveId" : {
+					"description" : "Leave Id",
+					"type" : "string"
+				}
+			},
+			"required" : ["leaveId"]
+		}
+	},
+	"required" : ["cmd", "data"]
+}

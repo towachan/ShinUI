@@ -1,0 +1,26 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "loginRes",
+	"description" : "Login response json",
+	"type" : "object",
+	"properties" : {
+		"result" : {
+			"description" : "Login request result",
+			"type" : "boolean"
+		},
+		"data" : {
+			"description" : "Response return data",
+			"type" : "object",
+			"properties" : {
+				"sessionId": {
+					"description" : "Session ID stored in cookie",
+					"type" : "string"
+				},
+			},
+			"required" : ["sessionId"]
+		}
+
+	},
+	"required" : ["result"]
+
+}

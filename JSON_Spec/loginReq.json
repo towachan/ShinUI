@@ -1,0 +1,30 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "loginReq",
+	"description" : "Login action request json",
+	"type" : "object",
+	"properties" : {
+		"cmd" : {
+			"description" : "Request cmd",
+			"type" : "string",
+			"enum" :["login"]
+		},
+		"data" : {
+			"description" : "Request data",
+			"type" : "string",
+			"properties" : {
+				"staffId" : {
+					"description" : "Login staff ID",
+					"type" : "number"
+				},
+				"password" : {
+					"description" : "Login password",
+					"type" : "string"
+				}
+			},
+			"required" : ["staffId", "password"]
+		},
+
+	},
+	"required" : ["cmd", "data"]
+}

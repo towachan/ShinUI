@@ -1,0 +1,26 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "submitLeaveRes",
+	"description" : "Submit leave response json",
+	"type" : "object",
+	"properties" : {
+		"result" : {
+			"description" : "Request result",
+			"type" : "boolean"
+		},
+		"data" : {
+			"description" : "Response return data",
+			"type" : "object",
+			"properties" : {
+				"approveLink": {
+					"description" : "One click approveLink",
+					"type" : "string"
+				},
+			},
+			"required" : ["approveLink"]
+		}
+
+	},
+	"required" : ["result"]
+
+}

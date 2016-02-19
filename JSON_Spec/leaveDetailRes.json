@@ -1,0 +1,68 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "leaveDetailRes",
+	"description" : "Leave detail response json",
+	"type" : "object",
+	"properties" : {
+		"result" : {
+			"description" : "Request result",
+			"type" : "boolean"
+		},
+		"data" : {
+			"description" : "Response return data",
+			"type" : "object",
+			"properties" : {
+				"user": {
+					"description" : "User information",
+					"type" : "object",
+					"properties" : {
+						"staffId" : {
+							"description" : "Staff ID",
+							"type" : "number",
+						},
+						"staffName" : {
+							"description" : "Staff Name",
+							"type" : "string",
+						},
+						"title" : {
+							"description" : "Staff title",
+							"type" : "string",
+						},   
+					},
+					"required" : ["staffId", "staffName", "title"]
+				},
+				"leave" : {
+					"description" : "Leave request",
+					"type" : "object",
+					"properties" : {
+						"leaveId" : {
+							"description" : "Leave request ID",
+							"type" : "string"
+						},
+						"status" : {
+							"description" : "Leave request status",
+							"type" : "number"
+						},
+						"leaveType" : {
+							"description" : "Leave type",
+							"type" : "number"
+						},
+						"startDate" : {
+							"description" : "Leave start date",
+							"type" : "string"
+						},
+						"endDate" : {
+							"description" : "Leave end data",
+							"type" : "string"
+						}
+					},
+					"required" : ["leaveId","status","leaveType","startDate","endDate"]
+				}
+			},
+			"required" : ["user", "leave"]
+		}
+
+	},
+	"required" : ["result"]
+
+}

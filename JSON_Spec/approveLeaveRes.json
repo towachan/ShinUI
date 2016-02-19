@@ -1,0 +1,14 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "approveLeaveRes",
+	"description" : "Approve leave json",
+	"type" : "object",
+	"properties" : {
+		"result" : {
+			"description" : "Request result",
+			"type" : "boolean"
+		},
+	},
+	"required" : ["result"]
+
+}

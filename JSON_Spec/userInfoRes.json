@@ -1,0 +1,80 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "userInfoRes",
+	"description" : "Get user information response",
+	"type" : "object",
+	"properties" : {
+		"result" : {
+			"description" : "Request result",
+			"type" : "boolean"
+		},
+		"data" : {
+			"description" : "Response return data",
+			"type" : "object",
+			"properties" : {
+				"user": {
+					"description" : "User information",
+					"type" : "object",
+					"properties" : {
+						"staffId" : {
+							"description" : "Staff ID",
+							"type" : "number",
+						},
+						"staffName" : {
+							"description" : "Staff Name",
+							"type" : "string",
+						},
+						"title" : {
+							"description" : "Staff title",
+							"type" : "string",
+						},   
+					},
+					"required" : ["staffId", "staffName", "title"]
+				},
+				"leaveEntitlements" : {
+					"description" : "User leave entitlements array",
+					"type" : "array",
+					"items" :{
+						"entitle" : {
+							"description" : "User leave entitlement",
+							"type" : "object",
+							"properties" : {
+								"entitleType" : {
+									"description" : "Leave entitlement type",
+									"type" : "number"
+								},
+								"unit" : {
+									"description" : "Leave entitlement unit",
+									"type" : "string"
+								},
+								"entitlement" : {
+									"description" : "Leaves total",
+									"type" : "number"								
+								},
+								"pending" : {
+									"description" : "Leaves pending",
+									"type" : "number"								
+								},
+								"taken" : {
+									"description" : "Leaves taken",
+									"type" : "number"
+								},
+								"balance" : {
+									"description" : "Leaves left",
+									"type" : "number"
+								},
+								"expireDate" : {
+									"description" : "Expire Date",
+									"type" : "number"
+								}
+							},
+							"required" : ["entitleType","unit","entitlement","pending","taken","balance","expireDate"]
+						}						
+					}
+				}
+			},
+			"required" : ["user", "leaveEntitlements"]
+		},
+		"required" : ["result"]
+	}
+}
