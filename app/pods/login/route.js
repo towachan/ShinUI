@@ -19,9 +19,12 @@ export default Ember.Route.extend({
 						var controller = this.controller;
 						if(response.result){
 							controller.set('validateResult',true);
+							document.cookie = document.cookie + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+							console.log(document.cookie);
 							document.cookie="sessionId=" + response.data.sessionId.toString();
+							console.log(document.cookie);
 							// console.log(document.cookie);
-							window.location = '/home/mainPage';
+							window.location = '/sysInfo';
 						}
 						else{
 							controller.set('validateResult',false);

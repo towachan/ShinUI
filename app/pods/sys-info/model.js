@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  	leaves: DS.hasMany('leave')
+  infoId: DS('number'),
+  infoMsg: DS('string')
 });

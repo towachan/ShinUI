@@ -7,13 +7,20 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('home', function() {
-    this.route('userInfo',{path: "mainPage"});
-    this.route('leaves');
-    this.route('leaveDetail',{path:"leaveDetail/:leaveId"});
-    this.route('createLeave');
-    this.route('approveLeave');
+  this.route('logon');
+    this.route('sysInfo');
+  this.route('dashboard', function() {
+    this.route('myLeaves');
+    this.route('pendingOnMe');
   });
+  this.route('leave', function() {
+    this.route('details', {path: "details/:leaveId"});
+    this.route('create');
+    this.route('cancel');
+    this.route('approve');
+    this.route('list', {path: "list/:listStatus"});
+  });
+  this.route('quickApprove', {path: "quickApprove/:leaveId"});
 });
 
 export default Router;

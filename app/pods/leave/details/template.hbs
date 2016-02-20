@@ -1,0 +1,123 @@
+{{#nav-footer}}
+	<div class="page-header">
+	<h1><span class="label label-primary">Leave Detail</span></h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-1">
+			<button class="btn btn-default" onclick="history.go(-1)">Back</button>
+		</div>
+		<div class="col-lg-7"></div>
+		<div class="col-lg-4">
+			<div class="btn-group right" role="group">
+				{{#if model.currenUserActionisSubmit}}
+					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "cancel"}} >Cancel </button>
+				{{/if}}
+				
+				{{#if model.currentUserAction.isCancel}}
+					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "cancel"}} >Cancel </button>
+					{{/if}}
+
+				{{#if model.currentUserAction.isApprove}}
+					<button type="submit" class="btn btn-primary" {{action "confirmReq" "approve" }} >Approve </button>
+				{{/if}}
+
+				{{#if model.currentUserAction.isReject}}
+					<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} >Reject </button>
+				{{/if}}
+			</div>
+
+		</div>
+
+	</div>
+	<br>
+	<div class="well">
+		<div class="row buffer">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Leave ID</span>
+				  <span class="input-group-addon " >{{model.leave.leaveId}}</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Leave Type</span>
+				  <span class="input-group-addon" >{{model.leave.leaveType}}</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Status</span>
+				  <span class="input-group-addon" >{{model.leave.status}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row buffer">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Staff ID</span>
+				  <span class="input-group-addon " >{{model.user.staffId}}</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Staff Name</span>
+				  <span class="input-group-addon" >{{model.user.staffName}}</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Title</span>
+				  <span class="input-group-addon" >{{model.user.title}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row buffer">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Start Date</span>
+				  <span class="input-group-addon " >{{model.leave.startDate}}</span>
+				  <span class="input-group-addon " >{{model.leave.startHalf}}</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >End Date</span>
+				  <span class="input-group-addon" >{{model.leave.endDate}}</span>
+				  <span class="input-group-addon" >{{model.leave.endHalf}}</span>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Leave Days</span>
+				  <span class="input-group-addon" >{{model.leave.leaveDays}} </span>
+				  <span class="input-group-addon" >HMD </span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row buffer">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Submit Time</span>
+				  <span class="input-group-addon " >{{model.leave.createTime}}</span>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="input-group">
+				  <span class="input-group-addon detail-label" >Comments</span>
+				  <textarea  rows="3" class="form-control" value={{model.leave.comments}} disabled></textarea>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+{{/nav-footer}}
+{{confirm-modal model=model confirmMsg=confirmMsg}}

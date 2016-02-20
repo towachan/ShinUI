@@ -7,8 +7,8 @@
 		"cmd" : {
 			"description" : "Request cmd",
 			"type" : "string",
-			"enum" :["myLeaveList"]
+			"enum" :["myAllLeaves", "myPendingLeaves","allLeavesPendOnMe","leavesPendingOnMe" ]
 		}
 	},
-	"required" : ["cmd"]
+	"required" : ["data"]
 }

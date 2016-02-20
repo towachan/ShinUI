@@ -1,18 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	homeController: Ember.inject.controller('home'),
 	initialize: function(){
 		// this.get('homeController').set('classNames.leaveListClass', 'active');
-	}.on('init'),
 
-	isStatusChanged: function(){
-		var status = this.get('model').status;
-		if(status === "pending"){
-			return false;
-		}
-		return "disabled";
-	}.property('model'),
+
+	}.on('init'),
 
 
 	actions: {

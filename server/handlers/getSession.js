@@ -4,9 +4,16 @@ function getSession(req){
 	if(req.cookies.sessionId){
 		var sessionData = session.getSession(req.cookies.sessionId.toString()); 
 		
-		return sessionData;
+		return {
+			result: true,
+			data:{
+				staffId: sessionData.user.staffId,
+				staffName: sessionData.user.staffName,
+				userType: sessionData.user.userType
+			}
+		};
 	}
-	return false;
+	return {result: false};
 
 
 }

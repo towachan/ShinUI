@@ -12,6 +12,32 @@
 			"description" : "Response return data",
 			"type" : "object",
 			"properties" : {
+				"currentUserAction" : {
+					"description" : "Current user actions for this leave",
+					"type" : "object",
+					"properties" : {
+						"isSubmit" : {
+							"description" : "Current user if can submit this leave",
+							"type" : "boolean"
+						},
+						"isCancel" : {
+							"description" : "Current user if can cancel this leave",
+							"type" : "boolean"
+						},
+						"isApprove" : {
+							"description" : "Current user if can approve this leave",
+							"type" : "boolean"
+						},
+						"isReject" : {
+							"description" : "Current user if can reject this leave",
+							"type" : "boolean"
+						}
+
+					},
+					"required" : ["isSubmit", "isCancel", "isApprove", "isReject"]
+
+				},
+
 				"user": {
 					"description" : "User information",
 					"type" : "object",
@@ -59,7 +85,7 @@
 					"required" : ["leaveId","status","leaveType","startDate","endDate"]
 				}
 			},
-			"required" : ["user", "leave"]
+			"required" : ["user", "leave", "currentUserAction"]
 		}
 
 	},

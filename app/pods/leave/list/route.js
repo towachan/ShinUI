@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	model: function(){
+	model: function(params){
 		Ember.$.ajax({
-			url: 'requests/userInfo',
+			url: 'requests/listLeaves/' + params,
 			context: this,
 			success: function(response){
 				if(response.result){
@@ -14,3 +14,4 @@ export default Ember.Route.extend({
 		});
 	}
 });
+ 

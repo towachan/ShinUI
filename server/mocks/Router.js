@@ -23,6 +23,22 @@ module.exports = function(app) {
     res.send(handler.result(req));
   });
 
+  Router.get('/listLeaves/:id', function(req, res) {
+    console.log(req.params);
+    console.log(req.cookies);
+    var handler = require('../handlers/listLeaves');
+    // var result = handler.result(req);
+    res.send(handler.result(req));
+  });
+
+  Router.get('/quickApprove/:id', function(req, res) {
+    console.log(req.params);
+    console.log(req.cookies);
+    var handler = require('../handlers/quickApprove');
+    // var result = handler.result(req);
+    res.send(handler.result(req));
+  });
+
   Router.get('/leaves/:id', function(req, res) {
     console.log(req.params);
     console.log(req.cookies);

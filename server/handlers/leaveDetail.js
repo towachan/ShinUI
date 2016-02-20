@@ -4,21 +4,31 @@ function getDetail(req){
 	var leaveId = req.params.id;
 	return 	{result:true,
 			data:{
-				"staffId":"1234567",
-				"staffName":"testUser1",
-				"title":"ASE",
-				"startDate":"2016/02/23",
-				"startHalf":"AM",
-				"endDate":"2016/02/25",
-				"endHalf":"AM",
-				"leaveDays":"5",
-				"leaveType":"Annual",
-				"comments":"hahahahahha",
-				"createTime":"2016/02/18 10:32:14",
-				"leaveId":"leave_160218103215",
-				"status":"pending",
-				"approverId": "222"
-				}};
+				currentUserAction: {
+					"isSubmit" : false,
+					"isCancel" : false,
+					"isApprove" : true,
+					"isReject" : true
+				},
+				user: {
+					"staffId":"1234567",
+					"staffName":"testUser1",
+					"title":"ASE"
+				},
+				leave: {
+					"startDate":"2016/02/23",
+					"startHalf":"AM",
+					"endDate":"2016/02/25",
+					"endHalf":"AM",
+					"leaveDays":"5",
+					"leaveType":"Annual",
+					"comments":"hahahahahha",
+					"createTime":"2016/02/18 10:32:14",
+					"leaveId":"leave_160218103215",
+					"status":"pending",
+					"approverId": "222"
+				}
+			}};
 	// if(leaveId == 1){
 	// 	return {
 	// 		result:true,

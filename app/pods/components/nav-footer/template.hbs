@@ -21,20 +21,27 @@
           <button {{action 'logout'}} type="button" class="btn btn-default btn-xs navbar-btn navbar-right">
             <span class="glyphicon glyphicon-off" aria-hidden="true"></span> 
           </button>
-          <p class="navbar-text navbar-right">Logged in as {{model.staffName}}&nbsp;  </p>
+          <p class="navbar-text navbar-right">Logged in as {{session.staffName}}&nbsp;  </p>
           <ul class="nav navbar-nav">
-            <li class={{classNames.userInfoClass}}><a href="/home/mainPage">Home</a></li>
+            <li class={{classNames.userInfoClass}}><a href="/sysInfo">System Infomation</a></li>
 
             <li class={{classNames.leaveListClass}}>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Leaves<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/home/leaves">My Leave List</a></li>
-                <li><a href="/home/createLeave">Create Leave Request</a></li>
+                <li><a href="/leave/list/myAllLeaves">My All Leave Requests</a></li>
+                <li><a href="/leave/list/allLeavesPendOnMe">Leave Requests Pending On Me</a></li>
               </ul>
             </li>
 
+            <li class={{classNames.leaveListClass}}>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/leave/create">Create Leave Request</a></li>
+                <li><a href="/leave/list/myPendingLeaves">Submit/Cancel Leave Request</a></li>
+                <li><a href="/leave/list/leavesPendingOnMe">Approve/Reject Leave Request</a></li>
+              </ul>
+            </li>
 
-            <li class={{classNames.approveReqClass}}><a href="/home/approveLeave" >Approve Leave Requests</a></li>
 
 
             <li ><a href="#">Support</a></li>
@@ -43,15 +50,23 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
-    <div class="contentbox">
-    {{outlet}}      
-    </div>
-
+	
   </div>
 
 </div>
 
+<div class="row contentbox">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		{{yield}}
+	</div>
+</div>
+
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">© 2016 prj=BigSword.</p>
+      </div>
+</footer>
 
 <!-- 
 
@@ -71,3 +86,4 @@
 
       </div>
     </div> -->
+
