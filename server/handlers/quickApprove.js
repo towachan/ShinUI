@@ -11,8 +11,7 @@ function quickApprove(req){
 	return 	{
 	result:true,
 	data:{
-		sessionId: sessionId,
-		leaveId: "leave_160218103215"
+		sessionId: sessionId
 	}};
 }
 
