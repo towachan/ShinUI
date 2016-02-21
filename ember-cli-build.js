@@ -9,10 +9,10 @@ module.exports = function(defaults) {
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
-  app.import('bower_components/bootstrap/dist/css/bootstrap.css', {destDir: 'css'});
-  app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', { destDir: 'css' });
-  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css', {destDir: 'css'});
-  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css.map', { destDir: 'css' });
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css', {destDir: 'assets'});
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', { destDir: 'assets' });
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css', {destDir: 'assets'});
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css.map', { destDir: 'assets' });
   app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css', {destDir: 'assets'});
   app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css.map', { destDir: 'assets' });
   app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', { destDir: 'fonts' });
@@ -21,10 +21,10 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', { destDir: 'fonts' });
   app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', { destDir: 'fonts' });
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
-  app.import('public/js/bootstrap_datepicker.js', { destDir: 'js'});
-  app.import('public/js/moment.js', { destDir: 'js'});
-  app.import('public/css/bootstrap_datepicker3.css', { destDir: 'css'});
-  app.import('public/css/bootstrap_datepicker3.css.map', { destDir: 'css'});
+  app.import('vendor/js/bootstrap-datepicker.js', { destDir: 'js'});
+  app.import('vendor/js/moment.js', { destDir: 'js'});
+  app.import('vendor/css/bootstrap-datepicker3.css', { destDir: 'assets'});
+  app.import('vendor/css/bootstrap-datepicker3.css.map', { destDir: 'assets'});
     // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings.png',{destDir: 'img'});
   // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings-white.png',{destDir: 'img'});
 
