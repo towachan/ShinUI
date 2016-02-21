@@ -21,7 +21,11 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', { destDir: 'fonts' });
   app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', { destDir: 'fonts' });
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
-  // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings.png',{destDir: 'img'});
+  app.import('public/js/bootstrap_datepicker.js', { destDir: 'js'});
+  app.import('public/js/moment.js', { destDir: 'js'});
+  app.import('public/css/bootstrap_datepicker3.css', { destDir: 'css'});
+  app.import('public/css/bootstrap_datepicker3.css.map', { destDir: 'css'});
+    // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings.png',{destDir: 'img'});
   // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings-white.png',{destDir: 'img'});
 
 
