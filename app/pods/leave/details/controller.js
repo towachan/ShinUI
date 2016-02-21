@@ -13,6 +13,9 @@ export default Ember.Controller.extend({
 			console.log('confirmReq');
 			this.set('confirmMsg', msg);
 			Ember.$('#confirmModal').modal();
+		},
+		back: function(){
+			history.go(-1);
 		}
 	}
 

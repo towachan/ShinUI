@@ -12,13 +12,15 @@ export default Ember.Route.extend({
 						controller.set('model', response.data);
 					}
 					else{
-						window.location.href = '/home/userInfo';
+						// window.location.href = '/#/sysInfo';
+						this.transitionTo('/sysInfo');
 					}
 				}
 			});
 		}
 		else{
-			window.location.href = '/hom/userInfo';
+			this.transitionTo('/sysInfo');
+			// window.location.href = '/#/sysInfo';
 		}
 	}
 });

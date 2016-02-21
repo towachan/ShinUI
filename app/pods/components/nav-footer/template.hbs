@@ -23,22 +23,23 @@
           </button>
           <p class="navbar-text navbar-right">Logged in as {{session.staffName}}&nbsp;  </p>
           <ul class="nav navbar-nav">
-            <li class={{classNames.userInfoClass}}><a href="/sysInfo">System Infomation</a></li>
+            <li class={{classNames.userInfoClass}}>{{#link-to 'sysInfo'}}System Infomation{{/link-to}}</li>
 
             <li class={{classNames.leaveListClass}}>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/leave/list/myAllLeaves">My All Leave Requests</a></li>
-                <li><a href="/leave/list/allLeavesPendOnMe">Leave Requests Pending On Me</a></li>
+              <li>{{#link-to 'leave.list' "myAllLeaves"}}My All Leave Requests{{/link-to}}</li>
+              <li>{{#link-to 'leave.list' "allLeavesPendOnMe"}}Leave Requests Pending On Me{{/link-to}}</li>
+
               </ul>
             </li>
 
             <li class={{classNames.leaveListClass}}>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/leave/create">Create Leave Request</a></li>
-                <li><a href="/leave/list/myPendingLeaves">Submit/Cancel Leave Request</a></li>
-                <li><a href="/leave/list/leavesPendingOnMe">Approve/Reject Leave Request</a></li>
+                <li>{{#link-to 'leave.create' }}Create Leave Request{{/link-to}}</li>
+                <li>{{#link-to 'leave.list' "myPendingLeaves"}}Submit/Cancel Leave Request{{/link-to}}</li>
+                <li>{{#link-to 'leave.list' "leavesPendingOnMe"}}Approve/Reject Leave Request{{/link-to}}</li>
               </ul>
             </li>
 

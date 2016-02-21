@@ -1,2 +1,10 @@
 
+{{#if isLogin}}
   {{outlet}} 
+{{/if}}
+
+{{#unless isLogin}}
+{{#nav-footer session=(action "jumpToLogin") logout=(action "jumpToLogin")}}
+{{outlet}}
+{{/nav-footer}}
+{{/unless}}

@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	beforeModel: function(transition){
 		var leaveId = transition.queryParams.leaveId;
-       	alert(leaveId);
+       	// alert(leaveId);
 	    Ember.$.ajax({
 			url: 'requests/quickApprove',
 			context: this,
@@ -13,7 +13,7 @@ export default Ember.Route.extend({
 			success: function(response){
 				if(response.result){
 					document.cookie="sessionId=" + response.data.sessionId;
-					window.location = '/leave/details/' + leaveId.toString();
+					this.transitionTo ('/leave/details/' + leaveId.toString());
 
 				}
 

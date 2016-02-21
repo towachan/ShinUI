@@ -24,7 +24,8 @@ export default Ember.Route.extend({
 							document.cookie="sessionId=" + response.data.sessionId.toString();
 							console.log(document.cookie);
 							// console.log(document.cookie);
-							window.location = '/sysInfo';
+							this.transitionTo('/sysInfo');
+							// window.location = '/#/sysInfo';
 						}
 						else{
 							controller.set('validateResult',false);
