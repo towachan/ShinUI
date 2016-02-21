@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'shin-ui',
     podModulePrefix: 'shin-ui/pods',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/dist',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
