@@ -56,11 +56,23 @@
 							"type" : "string"
 						},
 						"endDate" : {
-							"description" : "Leave end data",
+							"description" : "Leave end date",
 							"type" : "string"
+						},
+						"requestorId" : {
+							"description" : "Leave requester ID",
+							"type" : "number"
+						},
+						"requestorName" : {
+							"description" : "Leave requester name",
+							"type" : "string"
+						},
+						"approverId" : {
+							"description" : "Leave approver ID",
+							"type" : "number"
 						}
 					},
-					"required" : ["leaveId","status","leaveType","startDate","endDate"]
+					"required" : ["leaveId","status","leaveType","startDate","endDate","requesterId","requesterName","approverId"]
 				}
 			},
 			"required" : ["user", "leave", "currentUserAction"]

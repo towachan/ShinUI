@@ -5,8 +5,8 @@ module.exports = function(environment) {
     modulePrefix: 'shin-ui',
     podModulePrefix: 'shin-ui/pods',
     environment: environment,
-    baseURL: '/dist',
-    locationType: 'auto',
+    baseURL: '/',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -38,6 +38,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+  }
+
+  if( environment === 'dist'){
+    ENV.baseURL = '/dist';
   }
 
   if (environment === 'production') {

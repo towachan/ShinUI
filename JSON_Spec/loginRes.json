@@ -30,17 +30,6 @@
 					}
 				}
 			}
-		},
-		"data" : {
-			"description" : "Response return data",
-			"type" : "object",
-			"properties" : {
-				"sessionId": {
-					"description" : "Session ID stored in cookie",
-					"type" : "string"
-				},
-			},
-			"required" : ["sessionId"]
 		}
 
 	},

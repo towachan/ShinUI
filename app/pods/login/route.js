@@ -9,23 +9,21 @@ export default Ember.Route.extend({
 			}
 			else{
 				Ember.$.ajax({
-					url: 'requests/login',
+					url: 'requests/',
 					context: this,
 					data:{
-						staffId: this.controllerFor("login").get('staffId'), 
-						password: this.controllerFor("login").get('password') 
+						cmd: 'login',
+						data: {
+							staffId: this.controllerFor("login").get('staffId'), 
+							password: this.controllerFor("login").get('password') 
+							
+						}
 					},
 					success: function(response){
 						var controller = this.controller;
-						if(response.result){
+						if(response.responseStatus === "success"){
 							controller.set('validateResult',true);
-							document.cookie = document.cookie + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
-							console.log(document.cookie);
-							document.cookie="sessionId=" + response.data.sessionId.toString();
-							console.log(document.cookie);
-							// console.log(document.cookie);
 							this.transitionTo('/sysInfo');
-							// window.location = '/#/sysInfo';
 						}
 						else{
 							controller.set('validateResult',false);

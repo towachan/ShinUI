@@ -1,0 +1,77 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "LeaveEntitleRes",
+	"description" : "Get user information response",
+	"type" : "object",
+	"properties" : {
+		"cmd":{
+			"type":"string",
+			"minLength":3
+		},
+		"responseStatus":{
+			"type":"string"
+		},
+		"errorCode":{
+			"type":"string"
+		},
+		"errorMessage":{
+			"type":"string"
+		},
+		"validationErrors":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"code":{
+						"type":"string"
+					},
+					"desc":{
+						"type":"string"
+					}
+				}
+			}
+		},				
+
+		"leaveEntitlements" : {
+			"description" : "User leave entitlements array",
+			"type" : "array",
+			"items" :{
+				"entitle" : {
+					"description" : "User leave entitlement",
+					"type" : "object",
+					"properties" : {
+						"entitleType" : {
+							"description" : "Leave entitlement type",
+							"type" : "number"
+						},
+						"unit" : {
+							"description" : "Leave entitlement unit",
+							"type" : "string"
+						},
+						"entitlement" : {
+							"description" : "Leaves total",
+							"type" : "number"								
+						},
+						"pending" : {
+							"description" : "Leaves pending",
+							"type" : "number"								
+						},
+						"taken" : {
+							"description" : "Leaves taken",
+							"type" : "number"
+						},
+						"balance" : {
+							"description" : "Leaves left",
+							"type" : "number"
+						},
+						"expireDate" : {
+							"description" : "Expire Date",
+							"type" : "number"
+						}
+					},
+					"required" : ["entitleType","unit","entitlement","pending","taken","balance","expireDate"]
+				}						
+			}
+		}
+	}
+}

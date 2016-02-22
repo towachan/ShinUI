@@ -21,7 +21,7 @@
           <button {{action 'logout'}} type="button" class="btn btn-default btn-xs navbar-btn navbar-right">
             <span class="glyphicon glyphicon-off" aria-hidden="true"></span> 
           </button>
-          <p class="navbar-text navbar-right">Logged in as {{session.staffName}}&nbsp;  </p>
+          <p class="navbar-text navbar-right">Logged in as {{user.staffName}}&nbsp;  </p>
           <ul class="nav navbar-nav">
             <li class={{classNames.userInfoClass}}>{{#link-to 'sysInfo'}}System Infomation{{/link-to}}</li>
 

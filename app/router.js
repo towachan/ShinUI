@@ -8,10 +8,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('sysInfo');
-  this.route('dashboard', function() {
-    this.route('myLeaves');
-    this.route('pendingOnMe');
-  });
+
   this.route('leave', function() {
     this.route('details', {path: "details/:leaveId"});
     this.route('create');
@@ -20,7 +17,6 @@ Router.map(function() {
     this.route('list', {path: "list/:listStatus"});
   });
   this.route('quickApprove');
-  this.route('getSession');
 });
 
 export default Router;

@@ -9,19 +9,16 @@
 		<div class="col-lg-7"></div>
 		<div class="col-lg-4">
 			<div class="btn-group right" role="group">
-				{{#if model.currenUserActionisSubmit}}
-					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "cancel"}} >Cancel </button>
+				{{#if currenUserAction.isSubmit}}
+					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} >Cancel </button>
 				{{/if}}
 				
-				{{#if model.currentUserAction.isCancel}}
+				{{#if currenUserAction.isCancel}}
 					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "cancel"}} >Cancel </button>
 					{{/if}}
 
-				{{#if model.currentUserAction.isApprove}}
+				{{#if currenUserAction.isApprove}}
 					<button type="submit" class="btn btn-primary" {{action "confirmReq" "approve" }} >Approve </button>
-				{{/if}}
-
-				{{#if model.currentUserAction.isReject}}
 					<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} >Reject </button>
 				{{/if}}
 			</div>
