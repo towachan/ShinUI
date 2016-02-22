@@ -4,9 +4,32 @@
 	"description" : "Log out json",
 	"type" : "object",
 	"properties" : {
-		"result" : {
-			"description" : "Logout request result",
-			"type" : "boolean"
+		"cmd":{
+			"type":"string",
+			"minLength":3
+		},
+		"responseStatus":{
+			"type":"string"
+		},
+		"errorCode":{
+			"type":"string"
+		},
+		"errorMessage":{
+			"type":"string"
+		},
+		"validationErrors":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"code":{
+						"type":"string"
+					},
+					"desc":{
+						"type":"string"
+					}
+				}
+			}
 		},
 	},
 	"required" : ["result"]

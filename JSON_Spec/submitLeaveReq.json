@@ -18,11 +18,11 @@
 					"type" : "number"
 				},
 				"startDate" : {
-					"description" : "Leave start date",
+					"description" : "Leave start date (YYYYMMDD)",
 					"type" : "string"
 				},
 				"endDate" : {
-					"description" : "Leave end date",
+					"description" : "Leave end date (YYYYMMDD)",
 					"type" : "string"
 				},
 				"startHalf" : {
@@ -35,13 +35,13 @@
 					"type" :"number",
 					"enum" : [0, 1]
 				},
-				"leaveDays" : {
-					"description" : "Leave days",
-					"type" : "number"
-				},
 				"leaveType" : {
 					"description" : "Leave Type",
 					"type" : "number"
+				},
+				"isCoreLeave" : {
+					"description" : "Leave Type",
+					"type" : "boolean"
 				},
 				"comments" : {
 					"description" : "Requester comments",
