@@ -6,46 +6,45 @@ export default Ember.Controller.extend({
 
 	}.on('init'),
 	appController: Ember.inject.controller('application'),
-	approver: null,
-	requester: null,
-	status: null,
-
-	currentUserAction: function(){
-		var currentUser = this.get('appController').get('session').staffId;
-		var approver = this.get('approver');
-		var requester = this.get('requester');
-		var status = this.get('status');
-
-		var isApprove = false;
-		var isSubmit = false;
-		var isCancel = false;
-
-		if(currentUser === approver && status === "pending"){
-			isApprove = true;
-		}
-		if(currentUser === requester && status === "pending"){
-			isCancel = true;
-		}
-		if(currentUser === requester && status === "draft"){
-			isSubmit = true;
-		}
-
-		return{
-			isApprove: isApprove,
-			isSubmit: isSubmit,
-			isCancel: isCancel
-		}
-		
-	}.property('appController', 'approver', 'requester', 'status'),
-
 	actions: {
 		confirmReq: function(msg){
 			console.log('confirmReq');
 			this.set('confirmMsg', msg);
 			Ember.$('#confirmModal').modal();
 		},
-		back: function(){
-			history.go(-1);
+
+		confirm: function(params){
+			var leaveId = this.get('model').leaveId;
+			var reqType = params.reqType;
+			var comments = params.comments;
+			console.log(reqType);
+			console.log(comments);
+			Ember.$.ajax({
+				url: 'requests/',
+				context: this,
+				data:{
+					cmd: reqType + 'Leave',
+					data:{
+						leaveId: leaveId,
+						comments: comments
+					}
+				},
+				success: function(response){
+					var appController = this.get('appController');
+					if(response.responseStatus === "success"){
+						appController.set('modalMsg', "Operation success!");
+						appController.set('modalHeader', "System Message");
+						appController.set('modalReload', true);
+					}
+					else{
+						appController.set('modalMsg',"Operation fail!");
+						appController.set('modalHeader', "System Error");
+						appController.set('modalReload', false);
+						//show error msg
+					}
+					Ember.$('#alertModal').modal();
+				}
+			});
 		}
 	}
 

@@ -27,13 +27,15 @@ function createLeave(req){
     var leaveId = generateId();
 	leave.leaveId = leaveId;
 	leave.status = "pending";
-	var leaveFile = 'server/json/leaves/' + leaveId.toString() + '.json'
+	var leaveFile = 'server/json/leaves/' + leave['data[staffId]'] + '/' + leaveId.toString() + '.json';
 	fs.writeFileSync(leaveFile,JSON.stringify(leave));
+	var approveLink = "http://133.13.136.137:4200/quickApprove?leaveId=" + leaveId;
 
 	return {
-		result: true,
-		message: "Create Leave Request Completed.",
-		leaveId: leaveId
+		responseStatus: 'success',
+		data: {
+			approveLink: approveLink
+		}
 	};
 }
 

@@ -22,13 +22,15 @@ function addZero(str){
 function createSession(session){
 	var sessionId = generateId();
 	session.sessionId = sessionId;
-	var sessionFile = 'server/json/sessions/' + sessionId.toString() + '.json'
+	// var sessionFile = 'server/json/sessions/' + sessionId.toString() + '.json';
+	var sessionFile = 'server/json/sessions/session.json';
 	fs.writeFileSync(sessionFile,JSON.stringify(session));
 	return sessionId;
 }
 
 function getSession(sessionId){
-	var sessionFile = 'server/json/sessions/' + sessionId.toString() + '.json';
+	var sessionFile = 'server/json/sessions/session.json';
+	// var sessionFile = 'server/json/sessions/' + sessionId.toString() + '.json';
 	// var session = {};
 	if(fs.existsSync(sessionFile)){
 		var session = JSON.parse(fs.readFileSync(sessionFile, 'utf8'));

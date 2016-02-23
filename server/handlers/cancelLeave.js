@@ -1,8 +1,7 @@
 
 function cancelLeave(){
 	return {
-		result: true,
-		message: "Cancel Request Successfully."
+		responseStatus: "success"
 	};
 }
 

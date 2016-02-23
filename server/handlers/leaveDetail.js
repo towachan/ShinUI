@@ -2,7 +2,8 @@ var fs = require('fs');
 
 function getDetail(req){
 	var leaveId = req.params.id;
-	return 	{result:true,
+	return 	{
+			responseStatus: 'success',
 			data:{
 				leave: {
 					"startDate":"2016/02/23",
@@ -16,8 +17,8 @@ function getDetail(req){
 					"leaveId":"leave_160218103215",
 					"status":"pending",
 					"approverId": "222",
-					"requesterId" : "123",
-					"requesterName" : "abc"
+					"requestorId" : "111",
+					"requestorName" : "abc"
 				}
 			}};
 	// if(leaveId == 1){

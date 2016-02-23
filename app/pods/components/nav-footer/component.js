@@ -16,7 +16,12 @@ export default Ember.Component.extend({
 
 	actions: {
 		logout: function(){
-			Ember.$.ajax('requests/log/out');
+			Ember.$.ajax({
+				url: 'requests/',
+				data:{
+					cmd: 'logout'
+				}
+			});
 			this.sendAction('logout');
 		}
 	}

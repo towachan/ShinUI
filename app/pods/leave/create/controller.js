@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
 	isError: null,
 	dateValidation: null,
 	comments: null,
+	appController: Ember.inject.controller('application'),
 	initialize: function(){
 		Ember.$.fn.datepicker.defaults.format = "yyyy/mm/dd";
 	}.on('init'),
@@ -161,9 +162,9 @@ export default Ember.Controller.extend({
 		submit: function(){
 
 			var data = {
-				staffId: this.get('model').user.staffId,
-				staffName: this.get('model').user.staffName,
-				title: this.get('model').user.title,
+				staffId: this.get('currentUser').staffId,
+				staffName: this.get('currentUser').staffName,
+				title: this.get('currentUser').title,
 				startDate: this.get('startDate'),
 				startHalf: this.get('startHalf'),
 				endDate: this.get('endDate'),
@@ -174,23 +175,27 @@ export default Ember.Controller.extend({
 				createTime: moment().format("YYYY/MM/DD HH:mm:ss")
 			};
 
-			console.log(data);
-
 			Ember.$.ajax({
-				url: 'requests/createLeave',
+				url: 'requests/',
 				context: this,
-				data: data,
+				data: {
+					cmd: 'submitLeave',
+					data: data
+				},
 				success: function(response){
-					if(response.result){
-						console.log("success!");
-						var msg = response.message + "Leave ID is " + response.leaveId +".";
-						this.set('requestResult', response.result);
+					var appController = this.get('appController');
+					if(response.responseStatus == "success"){
+						appController.set('modalHeader', "Submit success!");
+						appController.set('modalMsg', "Approve link is " + response.data.approveLink);
+						appController.set('modalReload', true);
 					}
 					else{
-						var msg = response.message;
-						this.set('requestResult', response.result);
+						appController.set('modalHeader', response.errorCode);
+						appController.set('modalMsg', response.errMessage);
+						appController.set('modalReload', false);
+
 					}
-					this.set('submitMsg',msg);
+
 					Ember.$('#alertModal').modal();
 
 				}

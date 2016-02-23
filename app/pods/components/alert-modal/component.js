@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	actions: {
-		requestCompleted: function(requestResult){
-			if(requestResult){
+		reload: function(){
+			if(this.get('isReload')){
 				location.reload();
 			}
-		},
+		}
 	}
 });

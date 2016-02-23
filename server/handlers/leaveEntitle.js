@@ -1,13 +1,9 @@
 
 function getEntitle(){
 	return {
-		result: true,
+		cmd: 'leaveEntitle',
+		responseStatus: 'success',
 		data: {
-			user:{
-				staffId: "123",
-				staffName: "testUser1",
-				title: "ASE"
-			},
 			leaveEntitlements:[
 				{
 					type: "annual",

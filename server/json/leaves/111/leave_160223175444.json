@@ -1,0 +1,1 @@
+{"cmd":"submitLeave","data[staffId]":"111","data[staffName]":"staff","data[title]":"staff","data[startDate]":"2016/03/09","data[startHalf]":"AM","data[endDate]":"2016/03/10","data[endHalf]":"AM","data[leaveDays]":"3","data[leaveType]":"Annual","data[comments]":"","data[createTime]":"2016/02/23 17:54:44","leaveId":"leave_160223175444","status":"pending"}

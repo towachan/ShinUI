@@ -58,19 +58,19 @@
 				<div class="col-lg-3">
 					<label class="control-label " >Staff ID</label>
 					<div class="input-group" >
-						{{input type="text" class="form-control" value=model.user.staffId disabled="true"}}
+						{{input type="text" class="form-control" value=currentUser.staffId disabled="true"}}
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<label class="control-label " >Staff Name</label>
 					<div class="input-group" >
-						{{input type="text" class="form-control" value=model.user.staffName disabled="true"}}
+						{{input type="text" class="form-control" value=currentUser.staffName disabled="true"}}
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<label class="control-label " >Title</label>
 					<div class="input-group" >
-						{{input type="text" class="form-control" value=model.user.title disabled="true"}}
+						{{input type="text" class="form-control" value=currentUser.title disabled="true"}}
 					</div>
 				</div>
 			</div>
@@ -146,7 +146,5 @@
 		</form>
 	</div>
 
-
-{{alert-modal  reqMsg=submitMsg requestResult=requestResult}}
 
 {{outlet}}

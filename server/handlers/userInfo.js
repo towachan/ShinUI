@@ -1,5 +1,8 @@
+var session = require('./session');
 
 function getUserInfo(req){
+	var sessionData = session.getSession("session");
+
 	if(req.cookies.sessionId === undefined){
 		return {
 			cmd: 'userInfo',
@@ -16,9 +19,9 @@ function getUserInfo(req){
 		responseStatus: 'success',
 		data: {
 			user:{
-				staffId: "123",
-				staffName: "testUser1",
-				title: "ASE"
+				staffId: sessionData.staffId,
+				staffName: sessionData.staffName,
+				title: sessionData.title
 			}
 		}
 	};

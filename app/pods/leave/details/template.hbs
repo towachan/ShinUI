@@ -4,20 +4,19 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-1">
-			<button class="btn btn-default"  {{action 'back'}}>Back</button>
 		</div>
 		<div class="col-lg-7"></div>
 		<div class="col-lg-4">
 			<div class="btn-group right" role="group">
-				{{#if currenUserAction.isSubmit}}
+				{{#if isSubmit}}
 					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} >Cancel </button>
 				{{/if}}
 				
-				{{#if currenUserAction.isCancel}}
-					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "cancel"}} >Cancel </button>
+				{{#if isCancel}}
+					<button type="submit" class="btn btn-default right" {{action "confirmReq" "cancel"}} >Cancel </button>
 					{{/if}}
 
-				{{#if currenUserAction.isApprove}}
+				{{#if isApprove}}
 					<button type="submit" class="btn btn-primary" {{action "confirmReq" "approve" }} >Approve </button>
 					<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} >Reject </button>
 				{{/if}}
@@ -55,19 +54,13 @@
 			<div class="col-lg-3">
 				<div class="input-group">
 				  <span class="input-group-addon detail-label" >Staff ID</span>
-				  <span class="input-group-addon " >{{model.user.staffId}}</span>
+				  <span class="input-group-addon " >{{model.leave.requestorId}}</span>
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="input-group">
 				  <span class="input-group-addon detail-label" >Staff Name</span>
-				  <span class="input-group-addon" >{{model.user.staffName}}</span>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Title</span>
-				  <span class="input-group-addon" >{{model.user.title}}</span>
+				  <span class="input-group-addon" >{{model.leave.requestorName}}</span>
 				</div>
 			</div>
 		</div>
@@ -116,4 +109,4 @@
 
 
 	</div>
-{{confirm-modal model=model confirmMsg=confirmMsg}}
+{{confirm-modal model=model confirmMsg=confirmMsg confirmRequest=(action 'confirm')}}

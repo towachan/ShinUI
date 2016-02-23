@@ -8,22 +8,7 @@ export default Ember.Component.extend({
 
 			console.log(reqType + ":" + comments);
 
-			Ember.$.ajax({
-				url: 'requests/' + reqType + 'Leave',
-				context: this,
-				data:{
-					leaveId: leaveId,
-					comments: comments
-				},
-				success: function(response){
-					if(response.result){
-						console.log(response.message);
-						this.set('reqMsg', response.message);
-						this.set('requestResult', response.result);
-						Ember.$('#alertModal').modal();
-					}
-				}
-			});
+			this.sendAction('confirmRequest', {reqType: reqType, comments: comments});
 		}
 	}
 });
