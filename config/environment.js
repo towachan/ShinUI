@@ -40,6 +40,10 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  if(environment === 'tc'){
+    ENV.ajax.url = "http://localhost:8080/bigsword/msgchannel";
+  }
+
   if( environment === 'dist'){
     ENV.baseURL = '/dist';
   }

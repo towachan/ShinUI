@@ -2,56 +2,23 @@
 
 export default Ember.Controller.extend({
 	ajaxGeneric: Ember.inject.service('ajax-generic'),
+	modalShow: Ember.inject.service('modal-show'),
 	isLogin: function(){
 		if(this.get('currentPath').toString().indexOf("login") > -1 || this.get('currentPath').toString().indexOf("quickApprove") > -1){
-			// var data = {
-			// 	cmd: 'userInfo'
-			// };
-			// var controller = this;
-			// this.get('ajaxGeneric').post(data, controller).then(function(data){
-			// 	console.log(controller);
-			// });
-
 			return true;
 		}
-		else if(document.cookie.toString().indexOf("sessionId") > -1){
+		else if(this.get('ajaxGeneric').cookieCheck()){
 			var data = {
 					cmd: 'userInfo'
 			};
-			var controller = this;
-			this.get('ajaxGeneric').post(data, controller).then(function(response){
-				controller.set('currentUser', response.data.user);
+			var _this = this;
+			this.get('ajaxGeneric').post(data, this, this).then(function(response){
+				_this.set('currentUser', response.data.user);
 			});
-
-
-
-			// Ember.$.ajax({
-			// 	url: 'requests/',
-			// 	context: this,
-			// 	data: {
-			// 		cmd: 'userInfo'
-			// 	},
-			// 	success: function(response){
-			// 		if(response.responseStatus === "success"){
-			// 			this.set('currentUser', response.data.user);
-			// 		}
-			// 		else{
-			// 			this.set('modalHeader', "Error");
-			// 			this.set('modalMsg', response.errMessage);
-			// 			this.set('modalReload', true);
-			// 			Ember.$('#alertModal').modal();
-			// 			this.transitionToRoute('/login');	
-			// 		}
-			// 	}
-			// });
 			return false;
 		}
 		else{
-			this.set('modalHeader', "Error");
-			this.set('modalMsg', "Session unvalid! Please log in.");
-			this.set('modalReload', true);
-			Ember.$('#alertModal').modal();
-			this.transitionToRoute('/login');
+			this.get('modalShow').show(this, "Error", "Session unvalid! Please log in.", true, "#alertModal", "/login");
 			return false;
 		}
 	}.property('currentPath'),

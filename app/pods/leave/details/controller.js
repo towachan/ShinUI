@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
 
 	}.on('init'),
 	appController: Ember.inject.controller('application'),
+	ajaxGeneric: Ember.inject.service('ajax-generic'),
+	modalShow: Ember.inject.service('modal-show'),
 	actions: {
 		confirmReq: function(msg){
 			console.log('confirmReq');
@@ -14,37 +16,29 @@ export default Ember.Controller.extend({
 		},
 
 		confirm: function(params){
-			var leaveId = this.get('model').leaveId;
+			var leaveId = this.get('model').leave.leaveId;
 			var reqType = params.reqType;
 			var comments = params.comments;
-			console.log(reqType);
-			console.log(comments);
-			Ember.$.ajax({
-				url: 'requests/',
-				context: this,
-				data:{
+
+
+			var _this = this;
+			var appController = this.get('appController');
+
+			var data = {
 					cmd: reqType + 'Leave',
 					data:{
 						leaveId: leaveId,
 						comments: comments
 					}
-				},
-				success: function(response){
-					var appController = this.get('appController');
-					if(response.responseStatus === "success"){
-						appController.set('modalMsg', "Operation success!");
-						appController.set('modalHeader', "System Message");
-						appController.set('modalReload', true);
-					}
-					else{
-						appController.set('modalMsg',"Operation fail!");
-						appController.set('modalHeader', "System Error");
-						appController.set('modalReload', false);
-						//show error msg
-					}
-					Ember.$('#alertModal').modal();
-				}
+				};
+
+			this.get('ajaxGeneric').post(data, appController).then(function(response){
+				appController.get('modalShow').show(appController, 
+											"System Message",
+											 "Operation success!",
+											  true, "#alertModal");
 			});
+
 		}
 	}
 

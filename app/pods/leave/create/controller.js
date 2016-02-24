@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
 	dateValidation: null,
 	comments: null,
 	appController: Ember.inject.controller('application'),
+	ajaxGeneric: Ember.inject.service('ajax-generic'),
 	initialize: function(){
 		Ember.$.fn.datepicker.defaults.format = "yyyy/mm/dd";
 	}.on('init'),
@@ -162,43 +163,28 @@ export default Ember.Controller.extend({
 		submit: function(){
 
 			var data = {
-				staffId: this.get('currentUser').staffId,
-				staffName: this.get('currentUser').staffName,
-				title: this.get('currentUser').title,
-				startDate: this.get('startDate'),
-				startHalf: this.get('startHalf'),
-				endDate: this.get('endDate'),
-				endHalf: this.get('endHalf'),
-				leaveDays: this.get('leaveDays'),
-				leaveType: this.get('leaveType'),
-				comments: this.get('comments'),
-				createTime: moment().format("YYYY/MM/DD HH:mm:ss")
-			};
-
-			Ember.$.ajax({
-				url: 'requests/',
-				context: this,
-				data: {
-					cmd: 'submitLeave',
-					data: data
-				},
-				success: function(response){
-					var appController = this.get('appController');
-					if(response.responseStatus == "success"){
-						appController.set('modalHeader', "Submit success!");
-						appController.set('modalMsg', "Approve link is " + response.data.approveLink);
-						appController.set('modalReload', true);
-					}
-					else{
-						appController.set('modalHeader', response.errorCode);
-						appController.set('modalMsg', response.errMessage);
-						appController.set('modalReload', false);
-
-					}
-
-					Ember.$('#alertModal').modal();
-
+				cmd: 'submitLeave',
+				data: {				
+					staffId: this.get('currentUser').staffId,
+					staffName: this.get('currentUser').staffName,
+					title: this.get('currentUser').title,
+					startDate: this.get('startDate'),
+					startHalf: this.get('startHalf'),
+					endDate: this.get('endDate'),
+					endHalf: this.get('endHalf'),
+					leaveDays: this.get('leaveDays'),
+					leaveType: this.get('leaveType'),
+					comments: this.get('comments'),
+					createTime: moment().format("YYYY/MM/DD HH:mm:ss")
 				}
+			};
+			var _this = this;
+			var appController = this.get('appController');
+			this.get('ajaxGeneric').post(data, appController).then(function(response){
+				appController.get('modalShow').show(appController, 
+											"Submit success!", 
+											"Approve link is " + response.data.approveLink, 
+											true, "#alertModal");
 			});
 
 		}

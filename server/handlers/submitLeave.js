@@ -1,5 +1,6 @@
 var url = require('url');
 var fs = require('fs');
+var file = require('./file');
 
 function generateId()
 {
@@ -22,12 +23,29 @@ function addZero(str){
 
 function createLeave(req){
 	var url_parts = url.parse(req.url, true);
-    var leave = url_parts.query;
-
+    var query = url_parts.query;
     var leaveId = generateId();
+
+    var leave = {};
 	leave.leaveId = leaveId;
 	leave.status = "pending";
-	var leaveFile = 'server/json/leaves/' + leave['data[staffId]'] + '/' + leaveId.toString() + '.json';
+	leave.staffId = query['data[staffId]'];
+	leave.staffName = query['data[staffName]'];
+	leave.title = query['data[title]'];
+	leave.startHalf = query['data[startHalf]'];
+	leave.startDate = query['data[startDate]'];
+	leave.endHalf = query['data[endHalf]'];
+	leave.endDate = query['data[endDate]'];
+	leave.leaveDays = query['data[leaveDays]'];
+	leave.leaveType = query['data[leaveType]'];
+	leave.comments = query['data[comments]'];
+	leave.createTime = query['data[createTime]'];
+	leave.requestorId = leave.staffId;
+	leave.requestorName = leave.staffName;
+	leave.approverId = "222";
+ 
+
+	var leaveFile = 'server/json/leaves/' + leave.staffId + '/' + leaveId.toString() + '.json';
 	fs.writeFileSync(leaveFile,JSON.stringify(leave));
 	var approveLink = "http://133.13.136.137:4200/quickApprove?leaveId=" + leaveId;
 

@@ -1,25 +1,16 @@
 var fs = require('fs');
+var url = require('url');
+var file = require('./file');
 
 function getDetail(req){
-	var leaveId = req.params.id;
+	var url_parts = url.parse(req.url, true);
+    var query = url_parts.query;
+    var leaveId = query['data[leaveId]'];
+	var fileData = file.readFile('server/json/leaves/111/'+ leaveId +'.json');
 	return 	{
 			responseStatus: 'success',
 			data:{
-				leave: {
-					"startDate":"2016/02/23",
-					"startHalf":"AM",
-					"endDate":"2016/02/25",
-					"endHalf":"AM",
-					"leaveDays":"5",
-					"leaveType":"Annual",
-					"comments":"hahahahahha",
-					"createTime":"2016/02/18 10:32:14",
-					"leaveId":"leave_160218103215",
-					"status":"pending",
-					"approverId": "222",
-					"requestorId" : "111",
-					"requestorName" : "abc"
-				}
+				leave: fileData
 			}};
 	// if(leaveId == 1){
 	// 	return {

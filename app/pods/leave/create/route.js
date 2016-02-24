@@ -1,50 +1,26 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	ajaxGeneric: Ember.inject.service('ajax-generic'),
 	model: function(){
-		Ember.$.ajax({
-			url: 'requests/',
-			data: {
+		var data_le = {
 				cmd: 'leaveEntitle'
-			},
-			context: this,
-			success: function(response){
-				if(response.responseStatus === "success"){
-					var controller = this.controller;
-					controller.set('model', response.data);
-				}
-				else{
-					//show error msg
-					var appController = this.controllerFor('application');
-					appController.set('modalHeader', response.errorCode);
-					appController.set('modalMsg', response.errMessage);
-					appController.set('modalReload', false);
-					Ember.$('#alertModal').modal();
-				}
-			}
+		};
+		var data_ui = {
+				cmd: 'userInfo'
+		};
+		var controller = this.controllerFor('leave.create');
+		var appController = this.controllerFor('application');
+
+
+		this.get('ajaxGeneric').post(data_le, appController).then(function(response){
+			controller.set('model', response.data);
 		});
 
-		Ember.$.ajax({
-			url: 'requests/',
-			data: {
-				cmd: 'userInfo'
-			},
-			context: this,
-			success: function(response){
-				if(response.responseStatus === "success"){
-					var controller = this.controller;
-					controller.set('currentUser', response.data.user);
-				}
-				else{
-					//show error msg
-					var appController = this.controllerFor('application');
-					appController.set('modalHeader', response.errorCode);
-					appController.set('modalMsg', response.errMessage);
-					appController.set('modalReload', false);
-					Ember.$('#alertModal').modal();
-				}
-			}
+		this.get('ajaxGeneric').post(data_ui, appController).then(function(response){
+			controller.set('currentUser', response.data.user);
 		});
+
 		
 
 	}

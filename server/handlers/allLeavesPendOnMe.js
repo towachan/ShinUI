@@ -1,30 +1,22 @@
 var url = require('url');
 var session = require('./session');
+var file = require('./file');
 
 function getLeaves(req){
    var sessionData = session.getSession('session');
+   var fileData = file.readDir('server/json/leaves/111/');
+
+
    if(sessionData.staffId === "222"){
+
+
+
 	   	return {
 	    		responseStatus: "success",
 	    		data:{
-	    			leaves:[
-					{
-						"staffId":"123",
-						"staffName":"testUser1",
-						"title":"ASE",
-						"startDate":"2016/02/23",
-						"startHalf":"AM",
-						"endDate":"2016/02/25",
-						"endHalf":"AM",
-						"leaveDays":"5",
-						"leaveType":"Annual",
-						"comments":"hahahahahha",
-						"createTime":"2016/02/18 10:32:14",
-						"leaveId":"leave_160218103215",
-						"status":"pending"
-					}
-					]}
-	   	};
+	    			leaves: fileData
+				}
+	   }
    }
    else{
       	return {

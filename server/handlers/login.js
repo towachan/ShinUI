@@ -24,7 +24,9 @@ function getResult(req){
     else{
       return {
         cmd: "login",
-        responseStatus: "fail"
+        responseStatus: "fail",
+        errorCode: "LOGINVALIDATE",
+        errorMessage: "Your staff ID or password is not right!"
       };
     }
 
