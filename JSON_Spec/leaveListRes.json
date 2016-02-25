@@ -58,6 +58,36 @@
 						"endDate" : {
 							"description" : "Leave end data",
 							"type" : "string"
+						},
+						"requestorId" : {
+							"description" : "Leave requester ID",
+							"type" : "number"
+						},
+						"requestorName" : {
+							"description" : "Leave requester name",
+							"type" : "string"
+						},
+						"approverId" : {
+							"description" : "Leave approver ID",
+							"type" : "number"
+						},
+						"startHalf" : {
+							"description" : "Leave start date AM/PM",
+							"type" :"number",
+							"enum" : [0, 1]
+						},
+						"endHalf" : {
+							"description" : "Leave end date AM/PM",
+							"type" :"number",
+							"enum" : [0, 1]
+						},
+						"isCoreLeave" : {
+							"description" : "Leave Type",
+							"type" : "boolean"
+						},
+						"comments" : {
+							"description" : "Requester comments",
+							"type" : "string"
 						}
 					},
 					"required" : ["leaveId","status","leaveType","startDate","endDate"]

@@ -13,37 +13,64 @@
 			"description" : "Leave requester",
 			"type" : "number"
 		},
-		"startDate" : {
-			"description" : "Leave start date (YYYYMMDD)",
-			"type" : "string"
-		},
-		"endDate" : {
-			"description" : "Leave end date (YYYYMMDD)",
-			"type" : "string"
-		},
-		"startHalf" : {
-			"description" : "Leave start date AM/PM",
-			"type" :"number",
-			"enum" : [0, 1]
-		},
-		"endHalf" : {
-			"description" : "Leave end date AM/PM",
-			"type" :"number",
-			"enum" : [0, 1]
-		},
-		"leaveType" : {
-			"description" : "Leave Type",
-			"type" : "number"
-		},
-		"isCoreLeave" : {
-			"description" : "Leave Type",
-			"type" : "boolean"
-		},
-		"comments" : {
-			"description" : "Requester comments",
-			"type" : "string"
+		"leave" : {
+			"description" : "Leave request",
+			"type" : "object",
+			"properties" : {
+				"leaveId" : {
+					"description" : "Leave request ID",
+					"type" : "string"
+				},
+				"status" : {
+					"description" : "Leave request status",
+					"type" : "number"
+				},
+				"leaveType" : {
+					"description" : "Leave type",
+					"type" : "number"
+				},
+				"startDate" : {
+					"description" : "Leave start date",
+					"type" : "string"
+				},
+				"endDate" : {
+					"description" : "Leave end data",
+					"type" : "string"
+				},
+				"requestorId" : {
+					"description" : "Leave requester ID",
+					"type" : "number"
+				},
+				"requestorName" : {
+					"description" : "Leave requester name",
+					"type" : "string"
+				},
+				"approverId" : {
+					"description" : "Leave approver ID",
+					"type" : "number"
+				},
+				"startHalf" : {
+					"description" : "Leave start date AM/PM",
+					"type" :"number",
+					"enum" : [0, 1]
+				},
+				"endHalf" : {
+					"description" : "Leave end date AM/PM",
+					"type" :"number",
+					"enum" : [0, 1]
+				},
+				"isCoreLeave" : {
+					"description" : "Leave Type",
+					"type" : "boolean"
+				},
+				"comments" : {
+					"description" : "Requester comments",
+					"type" : "string"
+				}
+			},
+			"required" : ["leaveId","status","leaveType","startDate","endDate"]
 		}
 	},
-	"required" : ["cmd", "staffId", "startDate","endDate","startHalf","endHalf","leaveDays","leaveType","isCoreLeave","comments"]
+	"required" : ["cmd", "staffId", "leave"]
 	
 }
