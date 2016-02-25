@@ -1,0 +1,21 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "dashboardReq",
+	"description" : "dashboard request",
+	"type" : "object",
+	"properties" : {
+		"cmd" : {
+			"description" : "Request cmd",
+			"type" : "string",
+			"enum" :["dashboard"]
+		},
+
+		"type" : {
+			"description" : "Dashboard type(for example: leave dashboard or user dashboard)",
+			"type" : "string"
+		}
+			
+		
+	},
+	"required" : ["cmd", "type"]
+}

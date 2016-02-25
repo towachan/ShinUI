@@ -1,0 +1,94 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "dashboardRes",
+	"description" : "dashboard response",
+	"type" : "object",
+	"properties" : {
+		"cmd" : {
+			"description" : "Request cmd",
+			"type" : "string",
+			"enum" :["dashboard"]
+		},
+		"responseStatus":{
+			"type":"string"
+		},
+		"errorCode":{
+			"type":"string"
+		},
+		"errorMessage":{
+			"type":"string"
+		},
+		"validationErrors":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"code":{
+						"type":"string"
+					},
+					"desc":{
+						"type":"string"
+					}
+				}
+			}
+		},
+		"createdByMe": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type":{
+						"type": "string"
+					},
+					"draft":{
+						"type": "number"
+					},
+					"pending":{
+						"type": "number"
+					},					
+					"cancelled":{
+						"type": "number"
+					},					
+					"approved":{
+						"type": "number"
+					},					
+					"rejected":{
+						"type": "number"
+					},
+
+				}
+			}
+		},
+		"pendOnMe": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type":{
+						"type": "string"
+					},
+					"draft":{
+						"type": "number"
+					},
+					"pending":{
+						"type": "number"
+					},					
+					"cancelled":{
+						"type": "number"
+					},					
+					"approved":{
+						"type": "number"
+					},					
+					"rejected":{
+						"type": "number"
+					},
+
+				}
+			}
+		},
+			
+		
+	},
+	"required" : ["cmd", "responseStatus"]
+		
+}
