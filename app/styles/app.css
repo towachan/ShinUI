@@ -167,3 +167,15 @@ td.notCurrent{
 .right {
   float: right;
 }
+
+.table {
+  table-layout: fixed;
+}
+td.clkCell:hover {
+  cursor: pointer;
+  background-color: #e8e8e8;
+}
+
+td.header {
+  font-weight: bold;
+}

@@ -17,13 +17,11 @@ function getUserInfo(req){
 	return {
 		cmd: 'userInfo',
 		responseStatus: 'success',
-		data: {
-			user:{
-				staffId: sessionData.staffId,
-				staffName: sessionData.staffName,
-				title: sessionData.title
-			}
-		}
+		staffId: sessionData.staffId,
+		staffName: sessionData.staffName,
+		title: sessionData.title
+			
+		
 	};
 	
 }

@@ -7,8 +7,21 @@
 		"cmd" : {
 			"description" : "Request cmd",
 			"type" : "string",
-			"enum" :["myAllLeaves", "myPendingLeaves","allLeavesPendOnMe","leavesPendingOnMe" ]
+			"enum" :["leaveList"]
+		},
+		"category": {
+			"description": "List category",
+			"type": "string",
+			"enum": ["createdByMe", "pendOnMe"]
+		},
+		"type" : {
+			"description": "Leave type",
+			"type": "string",
+		},
+		"status": {
+			"description": "Leave status",
+			"type" : "string"
 		}
 	},
-	"required" : ["data"]
+	"required" : ["cmd", "category", "type", "status"]
 }

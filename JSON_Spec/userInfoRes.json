@@ -31,33 +31,18 @@
 				}
 			}
 		},
-		"data" : {
-			"description" : "Response return data",
-			"type" : "object",
-			"properties" : {
-				"user": {
-					"description" : "User information",
-					"type" : "object",
-					"properties" : {
-						"staffId" : {
-							"description" : "Staff ID",
-							"type" : "number",
-						},
-						"staffName" : {
-							"description" : "Staff Name",
-							"type" : "string",
-						},
-						"title" : {
-							"description" : "Staff title",
-							"type" : "string",
-						},   
-					},
-					"required" : ["staffId", "staffName", "title"]
-				},
-
-			},
-			"required" : ["user"]
+		"staffId" : {
+			"description" : "Staff ID",
+			"type" : "number",
 		},
-		"required" : ["result"]
+		"staffName" : {
+			"description" : "Staff Name",
+			"type" : "string",
+		},
+		"title" : {
+			"description" : "Staff title",
+			"type" : "string",
+		}, 
+		"required" : ["cmd", "responseStatus"]
 	}
 }

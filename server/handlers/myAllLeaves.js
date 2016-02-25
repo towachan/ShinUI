@@ -10,15 +10,13 @@ function getLeaves(req){
    if(sessionData.staffId === "111"){
 	   	return {
 	    		responseStatus: "success",
-	    		data:{
-	    			leaves: fileData
-				}
+	    		leaves: fileData
+				
 	   }
    }
    else{
       	return {
     		responseStatus: "success",
-    		data:{}
    		};
 
    }

@@ -9,22 +9,15 @@
 			"type" : "string",
 			"enum" :["login"]
 		},
-		"data" : {
-			"description" : "Request data",
-			"type" : "string",
-			"properties" : {
-				"staffId" : {
-					"description" : "Login staff ID",
-					"type" : "number"
-				},
-				"password" : {
-					"description" : "Login password",
-					"type" : "string"
-				}
-			},
-			"required" : ["staffId", "password"]
+		"staffId" : {
+			"description" : "Login staff ID",
+			"type" : "number"
 		},
+		"password" : {
+			"description" : "Login password",
+			"type" : "string"
+		}
 
 	},
-	"required" : ["cmd", "data"]
+	"required" : ["cmd", "staffId", "password"]
 }

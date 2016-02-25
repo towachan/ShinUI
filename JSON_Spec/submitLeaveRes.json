@@ -31,19 +31,12 @@
 				}
 			}
 		},
-		"data" : {
-			"description" : "Response return data",
-			"type" : "object",
-			"properties" : {
-				"approveLink": {
-					"description" : "One click approveLink",
-					"type" : "string"
-				},
-			},
-			"required" : ["approveLink"]
+		"approveLink": {
+			"description" : "One click approveLink",
+			"type" : "string"
 		}
 
 	},
-	"required" : ["result"]
+	"required" : ["cmd", "responseStatus"]
 
 }

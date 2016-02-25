@@ -15,11 +15,8 @@ export default Ember.Route.extend({
 
 				var data =  {
 					cmd: 'login',
-					data: {
-						staffId: this.controllerFor("login").get('staffId'), 
-						password: this.controllerFor("login").get('password') 
-					}
-							
+					staffId: this.controllerFor("login").get('staffId'), 
+					password: this.controllerFor("login").get('password') 
 				};
 
 				this.get('ajaxGeneric').post(data, appController).then(

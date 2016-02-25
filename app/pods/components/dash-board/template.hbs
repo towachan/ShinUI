@@ -1,0 +1,29 @@
+<div class="sub-header">
+	<h2>{{header}}</h2>
+</div>
+<div class="row">
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+				{{#each tbHead as |head| }}
+					<td class="header">{{head}}</td>
+				{{/each}}
+				</tr>
+			</thead>
+			<tbody>
+				{{#each tbBody as |body| }}
+				<tr>
+					{{#each body as |cell| }}
+						<td class={{cell.cls}} {{action "list" cell.position}}>{{cell.dt}}</td>
+					{{/each}}
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+{{yield}}

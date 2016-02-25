@@ -17,9 +17,9 @@ export default Ember.Service.extend({
 		var promise = new Ember.RSVP.Promise(function(resolve, reject){
 			Ember.$.ajax({
 				url: url,
-				type: 'get',
+				type: 'post',
 				contentType: 'application/json; charset=utf-8', // Type of data sent to server
-				data: data,
+				data: JSON.stringify(data),
 				dataType: 'json',
 				context: appController,
 

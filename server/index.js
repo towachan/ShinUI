@@ -18,8 +18,12 @@ module.exports = function(app) {
   var morgan  = require('morgan');
   app.use(morgan('dev'));
 
-  var cookieParser = require('cookie-parser')
+  var cookieParser = require('cookie-parser');
   app.use(cookieParser());
+  var bodyParser = require('body-parser');
+  app.use(bodyParser.json());
+
+
 
   mocks.forEach(function(route) { route(app); });
   proxies.forEach(function(route) { route(app); });

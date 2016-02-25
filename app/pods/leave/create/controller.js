@@ -163,27 +163,26 @@ export default Ember.Controller.extend({
 		submit: function(){
 
 			var data = {
-				cmd: 'submitLeave',
-				data: {				
-					staffId: this.get('currentUser').staffId,
-					staffName: this.get('currentUser').staffName,
-					title: this.get('currentUser').title,
-					startDate: this.get('startDate'),
-					startHalf: this.get('startHalf'),
-					endDate: this.get('endDate'),
-					endHalf: this.get('endHalf'),
-					leaveDays: this.get('leaveDays'),
-					leaveType: this.get('leaveType'),
-					comments: this.get('comments'),
-					createTime: moment().format("YYYY/MM/DD HH:mm:ss")
-				}
+				cmd: 'submitLeave',				
+				staffId: this.get('currentUser').staffId,
+				staffName: this.get('currentUser').staffName,
+				title: this.get('currentUser').title,
+				startDate: this.get('startDate'),
+				startHalf: this.get('startHalf'),
+				endDate: this.get('endDate'),
+				endHalf: this.get('endHalf'),
+				leaveDays: this.get('leaveDays'),
+				leaveType: this.get('leaveType'),
+				comments: this.get('comments'),
+				createTime: moment().format("YYYY/MM/DD HH:mm:ss")
+				
 			};
 			var _this = this;
 			var appController = this.get('appController');
 			this.get('ajaxGeneric').post(data, appController).then(function(response){
 				appController.get('modalShow').show(appController, 
 											"Submit success!", 
-											"Approve link is " + response.data.approveLink, 
+											"Approve link is " + response.approveLink, 
 											true, "#alertModal");
 			});
 

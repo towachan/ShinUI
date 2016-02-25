@@ -9,17 +9,10 @@
 			"type" : "string",
 			"enum" :["rejectLeave"]
 		},
-		"data" : {
-			"description" : "Request data",
-			"type" : "object",
-			"properties" : {
-				"leaveId" : {
-					"description" : "Leave Id",
-					"type" : "string"
-				}
-			},
-			"required" : ["leaveId"]
+		"leaveId" : {
+			"description" : "Leave Id",
+			"type" : "string"
 		}
 	},
-	"required" : ["cmd", "data"]
+	"required" : ["cmd", "leaveId"]
 }

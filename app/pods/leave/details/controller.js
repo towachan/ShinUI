@@ -26,10 +26,9 @@ export default Ember.Controller.extend({
 
 			var data = {
 					cmd: reqType + 'Leave',
-					data:{
-						leaveId: leaveId,
-						comments: comments
-					}
+					leaveId: leaveId,
+					comments: comments
+					
 				};
 
 			this.get('ajaxGeneric').post(data, appController).then(function(response){

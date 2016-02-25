@@ -13,15 +13,13 @@ function getLeaves(req){
 
 	   	return {
 	    		responseStatus: "success",
-	    		data:{
-	    			leaves: fileData
-				}
+	    		leaves: fileData
+				
 	   }
    }
    else{
       	return {
     		responseStatus: "success",
-    		data:{}
    		};
 
    }

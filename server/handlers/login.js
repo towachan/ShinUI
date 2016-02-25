@@ -2,10 +2,9 @@ var url = require('url');
 var session = require('./session');
 
 function getResult(req){
-	  var url_parts = url.parse(req.url, true);
-    var query = url_parts.query;
-    var staffId = query['data[staffId]'];
-    var password = query['data[password]'];
+
+    var staffId = req.body.staffId;
+    var password = req.body.password;
 
     if(staffId === "222" && password === "aaa" ){
       var sessionId = session.createSession({staffId: "222", staffName: "manager", title: "manager"}); 

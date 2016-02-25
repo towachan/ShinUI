@@ -32,6 +32,6 @@
 			}
 		},
 	},
-	"required" : ["result"]
+	"required" : ["cmd", "responseStatus"]
 
 }

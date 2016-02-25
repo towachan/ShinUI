@@ -28,8 +28,7 @@
             <li class={{classNames.leaveListClass}}>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<span class="caret"></span></a>
               <ul class="dropdown-menu">
-              <li>{{#link-to 'leave.list' "myAllLeaves"}}My All Leave Requests{{/link-to}}</li>
-              <li>{{#link-to 'leave.list' "allLeavesPendOnMe"}}Leave Requests Pending On Me{{/link-to}}</li>
+              <li>{{#link-to 'dashboard.leave'}}Leave{{/link-to}}</li>
 
               </ul>
             </li>
@@ -38,8 +37,6 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>{{#link-to 'leave.create' }}Create Leave Request{{/link-to}}</li>
-                <li>{{#link-to 'leave.list' "myPendingLeaves"}}Submit/Cancel Leave Request{{/link-to}}</li>
-                <li>{{#link-to 'leave.list' "leavesPendingOnMe"}}Approve/Reject Leave Request{{/link-to}}</li>
               </ul>
             </li>
 

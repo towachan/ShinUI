@@ -22,24 +22,12 @@ function addZero(str){
 }
 
 function createLeave(req){
-	var url_parts = url.parse(req.url, true);
-    var query = url_parts.query;
+
     var leaveId = generateId();
 
-    var leave = {};
+    var leave = req.body;
 	leave.leaveId = leaveId;
 	leave.status = "pending";
-	leave.staffId = query['data[staffId]'];
-	leave.staffName = query['data[staffName]'];
-	leave.title = query['data[title]'];
-	leave.startHalf = query['data[startHalf]'];
-	leave.startDate = query['data[startDate]'];
-	leave.endHalf = query['data[endHalf]'];
-	leave.endDate = query['data[endDate]'];
-	leave.leaveDays = query['data[leaveDays]'];
-	leave.leaveType = query['data[leaveType]'];
-	leave.comments = query['data[comments]'];
-	leave.createTime = query['data[createTime]'];
 	leave.requestorId = leave.staffId;
 	leave.requestorName = leave.staffName;
 	leave.approverId = "222";
@@ -51,9 +39,8 @@ function createLeave(req){
 
 	return {
 		responseStatus: 'success',
-		data: {
-			approveLink: approveLink
-		}
+		approveLink: approveLink
+		
 	};
 }
 

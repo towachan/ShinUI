@@ -14,11 +14,11 @@ export default Ember.Route.extend({
 
 
 		this.get('ajaxGeneric').post(data_le, appController).then(function(response){
-			controller.set('model', response.data);
+			controller.set('model', response);
 		});
 
 		this.get('ajaxGeneric').post(data_ui, appController).then(function(response){
-			controller.set('currentUser', response.data.user);
+			controller.set('currentUser', response);
 		});
 
 		

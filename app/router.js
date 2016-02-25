@@ -14,9 +14,12 @@ Router.map(function() {
     this.route('create');
     this.route('cancel');
     this.route('approve');
-    this.route('list', {path: "list/:listStatus"});
+    this.route('list');
   });
   this.route('quickApprove');
+  this.route('dashboard', function() {
+    this.route('leave');
+  });
 });
 
 export default Router;

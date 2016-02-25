@@ -7,21 +7,20 @@ export default Ember.Route.extend({
 
 		var data = {
 				cmd: 'leaveDetail',
-				data: {
-					leaveId: params.leaveId
-				}
+				leaveId: params.leaveId
+
 		};
 		var controller = this.controllerFor('leave.details');
 		var appController = this.controllerFor('application');
 
 		this.get('ajaxGeneric').post(data, appController).then(function(response){
-			controller.set('model', response.data);
+			controller.set('model', response);
 
 			var data_ui = {
 				cmd: 'userInfo',
 			};
 			controller.get('ajaxGeneric').post(data_ui, appController).then(function(response){
-				controller.set('currentUser', response.data.user.staffId);
+				controller.set('currentUser', response.staffId);
 
 				var currentUser = controller.get('currentUser');
 				var approver = controller.get('model').leave.approverId;

@@ -12,8 +12,8 @@ export default Ember.Controller.extend({
 					cmd: 'userInfo'
 			};
 			var _this = this;
-			this.get('ajaxGeneric').post(data, this, this).then(function(response){
-				_this.set('currentUser', response.data.user);
+			this.get('ajaxGeneric').post(data, this).then(function(response){
+				_this.set('currentUser', response);
 			});
 			return false;
 		}
