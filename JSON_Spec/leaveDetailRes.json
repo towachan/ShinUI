@@ -31,38 +31,45 @@
 				}
 			}
 		},
-		"leaveId" : {
-			"description" : "Leave request ID",
-			"type" : "string"
-		},
-		"status" : {
-			"description" : "Leave request status",
-			"type" : "number"
-		},
-		"leaveType" : {
-			"description" : "Leave type",
-			"type" : "number"
-		},
-		"startDate" : {
-			"description" : "Leave start date",
-			"type" : "string"
-		},
-		"endDate" : {
-			"description" : "Leave end date",
-			"type" : "string"
-		},
-		"requestorId" : {
-			"description" : "Leave requester ID",
-			"type" : "number"
-		},
-		"requestorName" : {
-			"description" : "Leave requester name",
-			"type" : "string"
-		},
-		"approverId" : {
-			"description" : "Leave approver ID",
-			"type" : "number"
-		}
+		"leave" : {
+				"description" : "Leave request",
+				"type" : "object",
+				"properties" : {
+					"leaveId" : {
+						"description" : "Leave request ID",
+						"type" : "string"
+					},
+					"status" : {
+						"description" : "Leave request status",
+						"type" : "number"
+					},
+					"leaveType" : {
+						"description" : "Leave type",
+						"type" : "number"
+					},
+					"startDate" : {
+						"description" : "Leave start date",
+						"type" : "string"
+					},
+					"endDate" : {
+						"description" : "Leave end data",
+						"type" : "string"
+					},
+					"requestorId" : {
+						"description" : "Leave requester ID",
+						"type" : "number"
+					},
+					"requestorName" : {
+						"description" : "Leave requester name",
+						"type" : "string"
+					},
+					"approverId" : {
+						"description" : "Leave approver ID",
+						"type" : "number"
+					}
+				},
+				"required" : ["leaveId","status","leaveType","startDate","endDate"]
+			}
 
 	},
 	"required" : ["cmd", "responseStatus"]
