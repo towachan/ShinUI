@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Service.extend({
 	modalShow: Ember.inject.service('modal-show'),
@@ -13,7 +14,8 @@ export default Ember.Service.extend({
 
 
 	post: function(data, appController ){
-		var url = 'requests/';
+		var url = config.APP.ajax;
+		console.log("url: " + url);
 		var promise = new Ember.RSVP.Promise(function(resolve, reject){
 			Ember.$.ajax({
 				url: url,
@@ -22,6 +24,7 @@ export default Ember.Service.extend({
 				data: JSON.stringify(data),
 				dataType: 'json',
 				context: appController,
+
 
 				success: function(response){
 					if(response.responseStatus === "success"){

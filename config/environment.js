@@ -13,19 +13,30 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' ",
+      'font-src': "'self' ",
+      'connect-src': "'self' http://bigsword.online:8080",
+      'img-src': "'self' ",
+      'style-src': "'self' 'unsafe-inline' "
+    },
 
     APP: {
+      ajax: "requests/"
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
 
   if (environment === 'development') {
+    ENV.APP.ajax = "requests/";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
   }
 
   if (environment === 'test') {
@@ -41,7 +52,8 @@ module.exports = function(environment) {
   }
 
   if(environment === 'tc'){
-    ENV.ajax.url = "http://localhost:8080/bigsword/msgchannel";
+    ENV.baseURL = '/dist';
+    ENV.APP.ajax = "http://bigsword.online:8080/bigsword/jsonTest/jsonpost.html";
   }
 
   if( environment === 'dist'){

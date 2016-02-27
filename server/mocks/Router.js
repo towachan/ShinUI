@@ -12,7 +12,7 @@ module.exports = function(app) {
 
   Router.post('/', function(req, res) {
     var cmd = req.body.cmd;
-    
+    console.log(req.body);
     var sessionValidate = require('../handlers/sessionValidate');
     res = sessionValidate.check(req, res, cmd);
 
