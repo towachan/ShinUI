@@ -23,6 +23,10 @@ export default Ember.Component.extend({
 				}
 			});
 			this.sendAction('logout');
+		},
+
+		switch: function(){
+			this.sendAction('switch');
 		}
 	}
 });

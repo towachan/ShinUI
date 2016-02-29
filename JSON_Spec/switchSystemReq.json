@@ -1,0 +1,12 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "switchSystemReq",
+	"description" : "Swithc system request",
+	"type" : "object",
+	"properties": {
+		"cmd":{
+			"type": "string",
+			"enum": ["refresh"]
+		}
+	}
+}

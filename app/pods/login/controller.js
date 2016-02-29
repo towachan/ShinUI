@@ -4,6 +4,14 @@ export default Ember.Controller.extend({
 	validateResult: true,
 	staffId:"",
 	password:"",
-	errorMessage:""
+	errorMessage:"",
+	loginSystem: "leave",	
+
+	actions: {
+		switchSystem: function(){
+			var loginSystem = Ember.$("#loginSystem").val();
+			this.set('loginSystem', loginSystem);
+		}
+	}
 
 });

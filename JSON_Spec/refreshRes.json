@@ -1,0 +1,46 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "refershRes",
+	"description" : "Refresh page json",
+	"type" : "object",
+	"properties" : {
+		"cmd":{
+			"type":"string",
+			"minLength":3
+		},
+		"responseStatus":{
+			"type":"string"
+		},
+		"errorCode":{
+			"type":"string"
+		},
+		"errorMessage":{
+			"type":"string"
+		},
+		"validationErrors":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"code":{
+						"type":"string"
+					},
+					"desc":{
+						"type":"string"
+					}
+				}
+			}
+		},
+		"currentUserId": {
+			"type": "number"
+		},
+		"currentUserName": {
+			"type": "string"
+		},
+		"system": {
+			"type": "String"
+		}
+	},
+	"required" : ["cmd", "responseStatus"]
+
+}

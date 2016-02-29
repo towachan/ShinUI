@@ -4,7 +4,7 @@
 {{/if}}
 
 {{#unless isLogin}}
-{{#nav-footer user=currentUser logout=(action "jumpToLogin")}}
+{{#nav-footer isLeave=isLeave isTravel=isTravel user=currentUserName switch=(action "switchSystem") logout=(action "jumpToLogin")}}
 {{outlet}}
 {{/nav-footer}}
 {{/unless}}

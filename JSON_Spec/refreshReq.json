@@ -1,0 +1,12 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "refershReq",
+	"description" : "Refersh page request",
+	"type" : "object",
+	"properties": {
+		"cmd":{
+			"type": "string",
+			"enum": ["refresh"]
+		}
+	}
+}
