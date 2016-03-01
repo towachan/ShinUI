@@ -9,9 +9,9 @@
 			"type" : "string",
 			"enum" :["login"]
 		},
-		"staffId" : {
-			"description" : "Login staff ID",
-			"type" : "number"
+		"userName" : {
+			"description" : "Login user name",
+			"type" : "string"
 		},
 		"password" : {
 			"description" : "Login password",

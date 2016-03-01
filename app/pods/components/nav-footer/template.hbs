@@ -1,115 +1,159 @@
-<div class="row topBox">
-  <div class="col-md-2 "></div>
-  <div class="col-md-8">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
 
-          <a class="navbar-brand" >
-          {{#if isLeave}}
-            System LEAVE
-          {{/if}}
-          {{#if isTravel}}
-            System TRAVEL
-          {{/if}}
-          </a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-        </div>
+        <a class="navbar-brand navbar-font-color"  >
+        {{#if isLeave}}
+          System LEAVE
+        {{/if}}
+        {{#if isTravel}}
+          System TRAVEL
+        {{/if}}
+        </a>
+      </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" >
+        <p class="navbar-text navbar-right navbar-font-color">Logged in as {{user}}&nbsp;&nbsp;  </p>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" >
-
-          <button {{action 'logout'}} type="button" class="btn btn-default btn-xs navbar-btn navbar-right">
-            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> 
-          </button>
-          <button {{action 'switch'}} type="button" class="btn btn-default btn-xs navbar-btn navbar-right">
-            <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> 
-          </button>
-          <p class="navbar-text navbar-right">Logged in as {{user}}&nbsp;  </p>
-          <ul class="nav navbar-nav">
-            <li class={{classNames.userInfoClass}}>{{#link-to 'sysInfo'}}System Infomation{{/link-to}}</li>
+</nav>
 
 
+<div class="container-fluid">
+  
+  <div class="row content-box">
+    <div class="col-md-2 side-nav well ">
 
-            <li class={{classNames.leaveListClass}}>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              {{#if isLeave}}
-                <li>{{#link-to 'dashboard.leave'}}Leave{{/link-to}}</li>
-              {{/if}}
-              {{#if isTravel}}
-                <li>{{#link-to 'dashboard.leave'}}Travel{{/link-to}}</li>
-              {{/if}}
-              </ul>
+          <ul class="nav nav-pills nav-stacked">
+
+            <li role="presentation">
+              {{#link-to 'sysInfo' class="nav-link"}}
+              <span class="glyphicon glyphicon-info-sign " aria-hidden="true"></span>
+              <b>&nbsp;System Information</b>
+              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>{{/link-to}}
             </li>
+
+            <li role="presentation" >
+              <a onclick={{action "toggleExpand"}}  id="dashboard" class="nav-link">
+                <span class="glyphicon glyphicon-dashboard icon-bar " aria-hidden="true"></span>
+                <b>&nbsp;Dashboard</b>
+                <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="dashboard-chevron"></span>
+              </a>
+
+              {{#if dashboardExpand}}
+                <ul class="nav nav-pills nav-stacked">
+                  {{#if isLeave}}
+                    <li>{{#link-to 'dashboard.leave' class="nav-link nav-link-inner"}}
+                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Leave</b>
+                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                          {{/link-to}}
+                    </li>
+                  {{/if}}
+
+                  {{#if isTravel}}
+                    <li>{{#link-to 'dashboard.leave' class="nav-link nav-link-inner"}}
+                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Travel</b>
+                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                          {{/link-to}}
+                    </li>
+                  {{/if}}
+                </ul>
+              {{/if}}
+
+            </li>
+
+
+
+
             {{#if isLeave}}
-            <li class={{classNames.leaveListClass}}>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li>{{#link-to 'leave.create' }}Create Leave Request{{/link-to}}</li>
-              </ul>
-            </li>
+              <li role="presentation">
+                <a onclick={{action "toggleExpand"}} id="myLeave" class="nav-link">
+                  <span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>
+                    <b>&nbsp;My Leave</b>
+                  <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="myLeave-chevron"></span>
+                </a>
+
+                {{#if myLeaveExpand}}
+                <ul class="nav nav-pills nav-stacked">
+                    <li>{{#link-to 'leave.create' class="nav-link nav-link-inner"}}
+                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Create Leave Request</b>
+                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                          {{/link-to}}
+                    </li>
+                </ul>
+                {{/if}}
+
+              </li>
             {{/if}}
 
             {{#if isTravel}}
-            <li class={{classNames.leaveListClass}}>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Travel<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li>{{#link-to 'leave.create' }}Create Travel Request{{/link-to}}</li>
-              </ul>
-            </li>
+              <li role="presentation">
+                <a onclick={{action "toggleExpand"}} id="myTravel" class="nav-link">
+                  <span class="glyphicon glyphicon-plane " aria-hidden="true"></span>
+                    <b>&nbsp;My Travel</b>
+                  <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="myTravel-chevron"></span>
+                </a>
+
+                {{#if myTravelExpand}}
+                <ul class="nav nav-pills nav-stacked">
+                    <li>{{#link-to 'leave.create' class="nav-link nav-link-inner"}}
+                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Create Travel Request</b>
+                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                          {{/link-to}}
+                    </li>
+                </ul>
+                {{/if}}
+
+              </li>
             {{/if}}
 
 
 
-            <li ><a href="#">Support</a></li>
 
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-	
+            <li role="presentation">
+              <a {{action 'switch'}} class="nav-link"><span class="glyphicon glyphicon-retweet " aria-hidden="true"></span>
+              <b>&nbsp;System Switch</b>
+              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span></a>
+            </li>
+
+
+            <li role="presentation">
+              {{#link-to 'sysInfo' class="nav-link"}}
+              <span class="glyphicon glyphicon-knight " aria-hidden="true"></span>
+              <b>&nbsp;Support</b>
+              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>{{/link-to}}
+            </li>
+
+            <li role="presentation">
+              <a {{action 'logout'}} class="nav-link"><span class="glyphicon glyphicon-off " aria-hidden="true"></span>
+              <b>&nbsp;Log Out</b>
+              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span></a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="col-md-9 col-md-offset-2 ">
+    <div class="well">
+    {{yield}}
+      
+    </div>
+          
+    </div>
   </div>
 
 </div>
 
-<div class="row contentbox">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-		{{yield}}
-	</div>
-</div>
 
-<footer class="footer">
-      <div class="container">
-        <p class="text-muted">© 2016 prj=BigSword.</p>
-      </div>
-</footer>
-
-<!-- 
-
-    <div class="container-fluid topBox ">
-      <div class="row">
-
-        <div class="col-sm-3 col-md-2 sidebar well">
-          <ul class="nav nav-sidebar"><p>sidebar1</p>
-	        <li class={{classNames.userInfoClass}} ><a href="home/userInfo">User Information</a></li>
-			    <li class={{classNames.leaveListClass}}><a href="home/leaves">My Leave List</a></li>
-          </ul>
-        </div>
-
-    	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      		{{outlet}}
-    	</div>
-
-      </div>
-    </div> -->
 

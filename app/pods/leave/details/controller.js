@@ -17,6 +17,8 @@ export default Ember.Controller.extend({
 
 		confirm: function(params){
 			var leaveId = this.get('model').leave.leaveId;
+			var leaves = [];
+			leaves.push(leaveId);
 			var reqType = params.reqType;
 			var comments = params.comments;
 
@@ -26,7 +28,7 @@ export default Ember.Controller.extend({
 
 			var data = {
 					cmd: reqType + 'Leave',
-					leaveId: leaveId,
+					leaves: leaves,
 					comments: comments
 					
 				};

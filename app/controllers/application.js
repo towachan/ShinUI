@@ -38,6 +38,7 @@ export default Ember.Controller.extend({
 
 	actions: {
 		jumpToLogin: function(){
+			document.cookie = document.cookie + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
 			this.set('modalHeader', "Log Out");
 			this.set('modalMsg', "You have been logged out.");
 			this.set('modalReload', true);
@@ -55,7 +56,7 @@ export default Ember.Controller.extend({
 				console.log("System Switch");
 				if(_this.get('currentPath') === "sysInfo"){
 					// _this.transitionToRoute('sysInfo', response);
-					// location.reload();
+					location.reload();
 				}
 				else{
 					_this.transitionToRoute('sysInfo');

@@ -14,7 +14,7 @@ Router.map(function() {
     this.route('create');
     this.route('cancel');
     this.route('approve');
-    this.route('list');
+    this.route('list', {path: "list/:category/:type/:status"});
   });
   this.route('quickApprove');
   this.route('dashboard', function() {

@@ -1,3 +1,14 @@
+@font-face {
+  font-family: glyph;
+  src: url('../fonts/glyphicons-halflings-regular.ttf');
+}
+
+body {
+  background-image: url('../img/bk.jpg');
+  background-attachment: fixed;
+  font-family: sans-serif;
+}
+
 .container.loginBox {
 	margin-top:20px;
 	background-color: whitesmoke;
@@ -49,24 +60,6 @@ td.notCurrent{
     color: grey;
 }
 
-.calendarMonths{
-    float: right;
-    font-size: 35px;
-    margin-bottom: 20px;
-    position: absolute;
-    left: 50%;
-}
-
-.calendarYear{
-    float: right;
-    font-size: 35px;
-    margin-bottom: 20px;
-}
-
-.calendarbtn{
-    float: left;
-    margin-bottom: 10px;
-}
 
 .detail:hover{
     cursor: pointer;
@@ -122,15 +115,8 @@ td.notCurrent{
   padding-left: 40px;
 }
 
-.navbar-brand {
-  background-color: #337ab7;
+.navbar-font-color {
   color: white!important;
-  font-family: -webkit-body;
-}
-
-.navbar-brand:hover {
-  background-color: #337ab7!important;
-
 }
 
 .btn,.panel-heading,.well,a,.alert {
@@ -142,11 +128,11 @@ td.notCurrent{
 }
 
 .footer {
-  padding-top: 20px;
+  background-color: #d9d9d9;
 }
 
-.contentbox {
-  min-height: 700px;
+.content-box {
+  padding-top: 70px;
 }
 
 .mandatory {
@@ -178,4 +164,41 @@ td.clkCell:hover {
 
 td.header {
   font-weight: bold;
+}
+
+.side-nav {
+  position: fixed;
+  margin-right: 50px;
+  padding-right: 0;
+  padding-left: 0;
+  color:black;
+}
+
+.content {
+  float: right;
+}
+
+.well {
+  opacity: 0.93;
+}
+
+.nav-link {
+  color: black;
+  border-radius: 0!important;
+}
+
+.nav-link:hover {
+  color:black;
+  background-color: #d9d9d9!important;
+  cursor: pointer;
+}
+.nav-link-inner {
+  padding-left: 50px!important;
+}
+.hidden {
+  display: none;
+}
+
+tr.selected {
+  background-color: #b3ffff!important;
 }

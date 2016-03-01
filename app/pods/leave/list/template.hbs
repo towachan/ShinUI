@@ -1,6 +1,22 @@
 
 <div class="page-header">
 <h1><span class="label label-primary">{{header}}</span></h1>
+
+<div class="btn-group right" role="group">
+	{{#if isSubmit}}
+		<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} >Cancel </button>
+	{{/if}}
+	
+	{{#if isCancel}}
+		<button type="submit" class="btn btn-default right" {{action "confirmReq" "cancel"}} >Cancel </button>
+	{{/if}}
+
+	{{#if isApprove}}
+		<button type="submit" class="btn btn-primary" {{action "confirmReq" "approve" }} >Approve </button>
+		<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} >Reject </button>
+	{{/if}}
+</div>
+
 </div>
 	<table class="table table-striped table-hover">
 		<thead>
@@ -15,7 +31,7 @@
 		</thead>
 		<tbody>
 			{{#each model.leaves as |leave| }}
-				<tr class="detail" {{action 'leaveDetail' leave.leaveId}}>
+				<tr class="detail" id={{leave.leaveId}} ondblclick={{action 'leaveDetail' leave.leaveId}} onclick={{action "multi" leave.leaveId}}>
 					<td>{{leave.leaveId}}</td>
 					<td>{{leave.staffName}}</td>
 					<td>{{leave.status}}</td>
