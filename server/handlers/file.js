@@ -18,7 +18,10 @@ function readDir(path){
 		var files = fs.readdirSync(path);
 		var data = [];
 		for(var i=0;i<files.length;i++){
+
+
 			data[i] = JSON.parse(fs.readFileSync(path+files[i], 'utf8'));
+			
 		}
 		return data;
 	}
