@@ -3,13 +3,16 @@ var url = require('url');
 
 function approveLeave(req){
 
-    var leaveId = req.body.leaveId;
     var comments = req.body.comments;
+    var leaves = req.body.leaves;
 
-    var leave = file.readFile('server/json/leaves/111/' + leaveId + '.json');
-    leave.status = "approved";
-    leave.appvalComments = comments;
-    file.writeFile('server/json/leaves/111/' + leaveId + '.json', leave);
+    for(var i=0; i<leaves.length; i++){
+	    var leave = file.readFile('server/json/leaves/111/' + leaves[i] + '.json');
+	    leave.status = "approved";
+	    leave.approveComments = comments;
+	    file.writeFile('server/json/leaves/111/' + leaves[i] + '.json', leave);
+    	
+    }
 
 	return {
 		responseStatus: "success"

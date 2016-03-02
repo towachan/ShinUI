@@ -9,9 +9,14 @@
 			"type" : "string",
 			"enum" :["rejectLeave"]
 		},
-		"leaveId" : {
-			"description" : "Leave Id",
-			"type" : "string"
+		"leaves" : {
+			"description" : "Leave Ids",
+			"type" : "array",
+			"items": {
+				"leaveId" : {
+					"type" : "string"
+				}
+			}
 		}
 	},
 	"required" : ["cmd", "leaveId"]

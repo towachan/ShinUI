@@ -4,16 +4,16 @@
 
 <div class="btn-group right" role="group">
 	{{#if isSubmit}}
-		<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} >Cancel </button>
+		<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} disabled={{isAction}}>Submit </button>
 	{{/if}}
 	
 	{{#if isCancel}}
-		<button type="submit" class="btn btn-default right" {{action "confirmReq" "cancel"}} >Cancel </button>
+		<button type="submit" class="btn btn-default right" {{action "confirmReq" "cancel"}} disabled={{isAction}}>Cancel </button>
 	{{/if}}
 
 	{{#if isApprove}}
-		<button type="submit" class="btn btn-primary" {{action "confirmReq" "approve" }} >Approve </button>
-		<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} >Reject </button>
+		<button type="submit" class="btn btn-primary" {{action "confirmReq" "approve" }} disabled={{isAction}}>Approve </button>
+		<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} disabled={{isAction}}>Reject </button>
 	{{/if}}
 </div>
 
@@ -42,3 +42,5 @@
 			{{/each}}
 		</tbody>
 	</table>
+
+{{confirm-modal model=model confirmMsg=confirmMsg confirmRequest=(action 'confirm')}}

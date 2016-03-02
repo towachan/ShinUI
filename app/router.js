@@ -20,6 +20,8 @@ Router.map(function() {
   this.route('dashboard', function() {
     this.route('leave');
   });
+  this.route('report');
+  this.route('support');
 });
 
 export default Router;

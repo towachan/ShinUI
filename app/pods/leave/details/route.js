@@ -14,10 +14,25 @@ export default Ember.Route.extend({
 		var appController = this.controllerFor('application');
 
 		this.get('ajaxGeneric').post(data, appController).then(function(response){
+			
+			if(response.leave.isCoreLeave){
+				response.leave.isCoreLeave = "Yes";
+			}
+			else{
+				response.leave.isCoreLeave = "No";
+			}
+
 			controller.set('model', response);
 
+			if(response.leave.comments || response.leave.approveComments || response.leave.cancelComments || response.leave.rejectComments){
+				controller.set('isComments', true);
+			}
+			else{
+				controller.set('isComments', false);
+			}
+
 			var data_ui = {
-				cmd: 'userInfo',
+				cmd: 'refresh',
 			};
 			controller.get('ajaxGeneric').post(data_ui, appController).then(function(response){
 				controller.set('currentUser', response.staffId);

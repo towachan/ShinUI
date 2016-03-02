@@ -1,7 +1,7 @@
 {
 	"$schema" : "http://json-schema.org/draft-04/schema#",
 	"title" : "submitLeaveRes",
-	"description" : "Submit leave json",
+	"description" : "Submit leave response json",
 	"type" : "object",
 	"properties" : {
 		"cmd":{
@@ -31,6 +31,11 @@
 				}
 			}
 		},
+		"approveLink": {
+			"description" : "One click approveLink",
+			"type" : "string"
+		}
+
 	},
 	"required" : ["cmd", "responseStatus"]
 

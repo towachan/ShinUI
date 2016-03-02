@@ -8,14 +8,14 @@ function getResult(req){
     var loginSystem = req.body.loginSystem;
 
     if(staffId === "222" && password === "aaa" ){
-      var sessionId = session.createSession({staffId: "222", staffName: "manager", title: "manager", system: loginSystem}); 
+      var sessionId = session.createSession({staffId: "222", staffName: "manager", title: "manager",approverName:"bigManager", system: loginSystem}); 
       return{
         cmd: "login",
         responseStatus: "success"
       };
     }
     else if(staffId ==="111" && password === "bbb"){
-      var sessionId = session.createSession({staffId: "111", staffName: "staff", title: "staff", system: loginSystem}); 
+      var sessionId = session.createSession({staffId: "111", staffName: "staff", title: "staff", approverName: "manager", system: loginSystem}); 
       return{
         cmd: "login",
         responseStatus: "success"

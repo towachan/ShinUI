@@ -19,6 +19,11 @@ export default Ember.Route.extend({
 		};
 		this.get('ajaxGeneric').post(data, appController).then(function(response){
 			controller.set('model', response);
+
+			controller.set('isCancel', false);
+			controller.set('isSubmit', false);
+			controller.set('isApprove', false);
+
 			if(category === "createdByMe" && status === "pending"){
 				controller.set('isCancel', true);
 			}

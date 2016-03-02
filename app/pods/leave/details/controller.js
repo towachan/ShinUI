@@ -5,6 +5,10 @@ export default Ember.Controller.extend({
 		// this.get('homeController').set('classNames.leaveListClass', 'active');
 
 	}.on('init'),
+	isCreateComments: false,
+	isCancelComments: false,
+	isApproveComments: false,
+	isRejectComments: false,
 	appController: Ember.inject.controller('application'),
 	ajaxGeneric: Ember.inject.service('ajax-generic'),
 	modalShow: Ember.inject.service('modal-show'),
@@ -12,7 +16,8 @@ export default Ember.Controller.extend({
 		confirmReq: function(msg){
 			console.log('confirmReq');
 			this.set('confirmMsg', msg);
-			Ember.$('#confirmModal').modal();
+			// Ember.$('#confirmModal').modal();
+			Ember.$('#confirmModal').appendTo("body").modal('show');
 		},
 
 		confirm: function(params){

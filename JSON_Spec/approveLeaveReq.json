@@ -10,12 +10,17 @@
 			"enum" :["approveLeave"]
 		},
 
-		"leaveId" : {
-			"description" : "Leave Id",
-			"type" : "string"
+		"leaves" : {
+			"description" : "Leave Ids",
+			"type" : "array",
+			"items": {
+				"leaveId" : {
+					"type" : "string"
+				}
+			}
 		}
 			
 		
 	},
-	"required" : ["cmd", "leaveId"]
+	"required" : ["cmd", "leaves"]
 }

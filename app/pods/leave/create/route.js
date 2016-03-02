@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 				cmd: 'leaveEntitle'
 		};
 		var data_ui = {
-				cmd: 'userInfo'
+				cmd: 'refresh'
 		};
 		var controller = this.controllerFor('leave.create');
 		var appController = this.controllerFor('application');

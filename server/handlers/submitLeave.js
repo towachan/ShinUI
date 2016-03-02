@@ -1,47 +1,28 @@
-var url = require('url');
-var fs = require('fs');
 var file = require('./file');
+var url = require('url');
 
-function generateId()
-{
-	var date = new Date();
-	var currentTime = addZero(date.getFullYear().toString().substring(2,4)) 
-						+ addZero((date.getMonth()+1).toString())
-						+ addZero(date.getDate().toString())
-						+ addZero(date.getHours().toString())
-						+ addZero(date.getMinutes().toString())
-						+ addZero(date.getSeconds().toString());
-	return "leave_" + currentTime;
-}
+function submitLeave(req){
 
-function addZero(str){
-	if(str.length==1){
-		str = '0' + str;
-	}
-	return str;
-}
+    var comments = req.body.comments;
 
-function createLeave(req){
+    var leaves = req.body.leaves;
 
-    var leaveId = generateId();
-
-    var leave = req.body;
-	leave.leaveId = leaveId;
-	leave.status = "pending";
-	leave.requestorId = leave.staffId;
-	leave.requestorName = leave.staffName;
-	leave.approverId = "222";
- 
-
-	var leaveFile = 'server/json/leaves/' + leave.staffId + '/' + leaveId.toString() + '.json';
-	fs.writeFileSync(leaveFile,JSON.stringify(leave));
-	var approveLink = "http://133.13.136.137:4200/quickApprove?leaveId=" + leaveId;
+    for(var i=0; i<leaves.length; i++){
+	    var leave = file.readFile('server/json/leaves/111/' + leaves[i] + '.json');
+	    leave.status = "pending";
+	    if(leave.comments){
+		    leave.comments = leave.comments + " " + comments;
+	    }
+	    else{
+			leave.comments = comments
+	    }
+	    file.writeFile('server/json/leaves/111/' + leaves[i] + '.json', leave);
+    	
+    }
 
 	return {
-		responseStatus: 'success',
-		approveLink: approveLink
-		
+		responseStatus: "success"
 	};
 }
 
-exports.result = createLeave;
+exports.result = submitLeave;

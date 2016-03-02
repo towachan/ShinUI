@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
 	startHalf: 'AM',
 	endHalf: 'AM',
 	halfDays: ['AM','PM'],
+	isCoreLeave: 0,
 	leaveTypes: ["Annual", "Sick"],
 	// errorMsg: null,
 	isError: null,
@@ -160,21 +161,30 @@ export default Ember.Controller.extend({
 			this.set('endHalf', endHalf);
 		},
 
-		submit: function(){
+		coreLeaveChange: function(){
+			var isCoreLeave = Ember.$("#isCoreLeave").val();
+			this.set('isCoreLeave', isCoreLeave);
+		},
+
+		submit: function(type){
 
 			var data = {
-				cmd: 'submitLeave',				
-				staffId: this.get('currentUser').staffId,
-				staffName: this.get('currentUser').staffName,
-				title: this.get('currentUser').title,
-				startDate: this.get('startDate'),
-				startHalf: this.get('startHalf'),
-				endDate: this.get('endDate'),
-				endHalf: this.get('endHalf'),
-				leaveDays: this.get('leaveDays'),
-				leaveType: this.get('leaveType'),
-				comments: this.get('comments'),
-				createTime: moment().format("YYYY/MM/DD HH:mm:ss")
+				cmd: 'createLeave',
+				createType: type,
+				leave: {
+					staffId: this.get('currentUser').staffId,
+					staffName: this.get('currentUser').staffName,
+					title: this.get('currentUser').title,
+					startDate: this.get('startDate'),
+					startHalf: this.get('startHalf'),
+					endDate: this.get('endDate'),
+					endHalf: this.get('endHalf'),
+					leaveDays: this.get('leaveDays'),
+					leaveType: this.get('leaveType'),
+					isCoreLeave: this.get('isCoreLeave'),
+					comments: this.get('comments'),
+					createTime: moment().format("YYYY/MM/DD HH:mm:ss")
+				}				
 				
 			};
 			var _this = this;

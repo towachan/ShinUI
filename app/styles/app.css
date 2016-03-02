@@ -132,7 +132,7 @@ td.notCurrent{
 }
 
 .content-box {
-  padding-top: 70px;
+  padding-top: 55px;
 }
 
 .mandatory {
@@ -185,6 +185,7 @@ td.header {
 .nav-link {
   color: black;
   border-radius: 0!important;
+  padding-left: 5px!important;
 }
 
 .nav-link:hover {
@@ -201,4 +202,87 @@ td.header {
 
 tr.selected {
   background-color: #b3ffff!important;
+}
+
+.page-header {
+  margin-top: 10px;
+  padding-bottom: 0;
+}
+
+h1 {
+  margin: 0;
+  padding:0;
+}
+
+dt,dd{
+  padding-top:7px;
+}
+
+.deatil-label {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 0;
+}
+
+.detail-data {
+  text-align: left;
+  padding-left: 0;
+}
+
+.detail-label-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.detail-label-group {
+  padding-left: 0;
+}
+
+.create-data-input {
+  padding-top: 6px;
+  padding-bottom: 7px;
+}
+
+.create-label-group {
+  padding-left: 0;
+}
+.create-label {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 0;
+}
+
+.create-data {
+  text-align: left;
+  padding-left: 0;
+}
+.create-label-item {
+  position: relative;
+  display: block;
+  padding-top: 12px;
+  padding-bottom:  15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.create-data-group {
+  padding-left: 0;
+}
+
+
+.divider {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+
+.input-group-addon {
+  width:0;
+}
+
+.min-text {
+  min-width: 220px;
 }

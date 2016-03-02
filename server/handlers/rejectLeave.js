@@ -1,19 +1,22 @@
 var file = require('./file');
 var url = require('url');
 
-function approveLeave(req){
+function rejectLeave(req){
 
-    var leaveId = req.body.leaveId;
     var comments = req.body.comments;
+    var leaves = req.body.leaves;
 
-    var leave = file.readFile('server/json/leaves/111/' + leaveId + '.json');
-    leave.status = "rejected";
-    leave.rejectComments = comments;
-    file.writeFile('server/json/leaves/111/' + leaveId + '.json', leave);
+    for(var i=0; i<leaves.length; i++){
+	    var leave = file.readFile('server/json/leaves/111/' + leaves[i] + '.json');
+	    leave.status = "rejected";
+	    leave.rejectComments = comments;
+	    file.writeFile('server/json/leaves/111/' + leaves[i] + '.json', leave);
+    	
+    }
 
 	return {
 		responseStatus: "success"
 	};
 }
 
-exports.result = approveLeave;
+exports.result = rejectLeave;

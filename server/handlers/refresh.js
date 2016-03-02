@@ -20,7 +20,8 @@ function getSessionData(req){
 		staffId: sessionData.staffId,
 		staffName: sessionData.staffName,
 		title: sessionData.title,
-		system: sessionData.system
+		system: sessionData.system,
+		approverName: sessionData.approverName
 			
 		
 	};

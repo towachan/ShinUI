@@ -16,6 +16,7 @@ export default Ember.Controller.extend({
 			};
 			var _this = this;
 			this.get('ajaxGeneric').post(data, this).then(function(response){
+				_this.set('currentUserId', response.staffId);
 				_this.set('currentUserName', response.staffName);
 				_this.set('currentSys', response.system);
 				var currentSys = _this.get('currentSys');
@@ -38,7 +39,13 @@ export default Ember.Controller.extend({
 
 	actions: {
 		jumpToLogin: function(){
-			document.cookie = document.cookie + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+			// document.cookie = document.cookie + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+			var data = {
+				cmd: 'logout'
+			};
+			this.get('ajaxGeneric').post(data,this).then(function(response){
+
+			});
 			this.set('modalHeader', "Log Out");
 			this.set('modalMsg', "You have been logged out.");
 			this.set('modalReload', true);

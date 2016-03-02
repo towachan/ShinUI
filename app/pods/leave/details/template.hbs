@@ -1,15 +1,9 @@
 
 	<div class="page-header">
-	<h1><span class="label label-primary">Leave Detail</span></h1>
-	</div>
-	<div class="row">
-		<div class="col-lg-1">
-		</div>
-		<div class="col-lg-7"></div>
-		<div class="col-lg-4">
+		<h1>Leave Detail
 			<div class="btn-group right" role="group">
 				{{#if isSubmit}}
-					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} >Cancel </button>
+					<button type="submit" class="btn btn-primary right" {{action "confirmReq" "submit"}} >Submit </button>
 				{{/if}}
 				
 				{{#if isCancel}}
@@ -21,92 +15,177 @@
 					<button type="submit" class="btn btn-default" {{action "confirmReq" "reject" }} >Reject </button>
 				{{/if}}
 			</div>
-
-		</div>
-
+			</h1>
+	
 	</div>
+
 	<br>
-	<div class="well">
-		<div class="row buffer">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Leave ID</span>
-				  <span class="input-group-addon " >{{model.leave.leaveId}}</span>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Leave Type</span>
-				  <span class="input-group-addon" >{{model.leave.leaveType}}</span>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Status</span>
-				  <span class="input-group-addon" >{{model.leave.status}}</span>
-				</div>
-			</div>
+	<div class="sub-header">
+		<h2>User Info</h2>	
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-2 col-sm-4 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Requestor ID</li>
+			  <li class="detail-label-item">Requestor Name</li>
+			</ul>
 		</div>
 
-		<div class="row buffer">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Staff ID</span>
-				  <span class="input-group-addon " >{{model.leave.requestorId}}</span>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Staff Name</span>
-				  <span class="input-group-addon" >{{model.leave.requestorName}}</span>
-				</div>
-			</div>
+		<div class="col-md-3 col-sm-6 detail-data">
+			<ul class="list-group">
+			  <li class="list-group-item">{{model.leave.requestorId}}</li>
+			  <li class="list-group-item">{{model.leave.requestorName}}</li>
+			</ul>
+		</div>
+		
+		<div class="col-md-1"></div>
+
+		<div class="col-md-2 col-sm-4 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Approver ID</li>
+			  <li class="detail-label-item">Approver Name</li>
+			</ul>
 		</div>
 
-		<div class="row buffer">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Start Date</span>
-				  <span class="input-group-addon " >{{model.leave.startDate}}</span>
-				  <span class="input-group-addon " >{{model.leave.startHalf}}</span>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >End Date</span>
-				  <span class="input-group-addon" >{{model.leave.endDate}}</span>
-				  <span class="input-group-addon" >{{model.leave.endHalf}}</span>
-				</div>
-			</div>
-
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Leave Days</span>
-				  <span class="input-group-addon" >{{model.leave.leaveDays}} </span>
-				  <span class="input-group-addon" >HMD </span>
-				</div>
-			</div>
-		</div>
-
-		<div class="row buffer">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-3">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Submit Time</span>
-				  <span class="input-group-addon " >{{model.leave.createTime}}</span>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="input-group">
-				  <span class="input-group-addon detail-label" >Comments</span>
-				  <textarea  rows="3" class="form-control" value={{model.leave.comments}} disabled></textarea>
-				</div>
-			</div>
+		<div class="col-md-3 col-sm-6 detail-data">
+			<ul class="list-group">
+			  <li class="list-group-item">{{model.leave.approverId}}</li>
+			  <li class="list-group-item">{{model.leave.approverName}}</li>
+			</ul>
 		</div>
 
 
 	</div>
+
+
+	<div class="sub-header">
+		<h2>Leave Info</h2>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2 col-sm-4 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Leave ID</li>
+			  <li class="detail-label-item">Leave Type</li>
+			  <li class="detail-label-item">Status</li>
+			  <li class="detail-label-item">Core Leave</li>
+			</ul>
+		</div>
+
+		<div class="col-md-3 col-sm-6 detail-data">
+			<ul class="list-group">
+			  <li class="list-group-item">{{model.leave.leaveId}}</li>
+			  <li class="list-group-item">{{model.leave.leaveType}}</li>
+			  <li class="list-group-item">{{model.leave.status}}</li>
+			  <li class="list-group-item">{{model.leave.isCoreLeave}}</li>
+			</ul>
+		</div>
+
+		<div class="col-md-1"></div>
+
+		<div class="col-md-2 col-sm-4 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Start Date</li>
+			  <li class="detail-label-item">End Date</li>
+			  <li class="detail-label-item">Leave Days</li>
+			  <li class="detail-label-item">Create Time</li>
+			</ul>
+		</div>
+
+		<div class="col-md-3 col-sm-6 detail-data">
+			<ul class="list-group">
+			  <li class="list-group-item">{{model.leave.startDate}} {{model.leave.startHalf}}</li>
+			  <li class="list-group-item">{{model.leave.endDate}} {{model.leave.endHalf}}</li>
+			  <li class="list-group-item">{{model.leave.leaveDays}} HMD</li>
+			  <li class="list-group-item">{{model.leave.createTime}}</li>
+			</ul>
+		</div>
+	</div>
+{{#if isComments}}
+	<div class="sub-header">
+		<h2>Comments</h2>
+	</div>
+
+	{{#if model.leave.comments}}
+	<div class="row">
+		
+		<div class="col-md-2 col-sm-2 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Create </li>
+			</ul>
+		</div>
+		<div class="col-md-8 col-sm-8 detail-data">
+			<ul class="list-group">
+			  	<li class="list-group-item">
+				  		{{model.leave.comments}}
+
+				</li>
+			</ul>
+		</div>
+	</div>
+	{{/if}}
+
+	{{#if model.leave.approveComments}}
+	<div class="row">
+
+		<div class="col-md-2 col-sm-2 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Approve </li>
+			</ul>
+		</div>
+		<div class="col-md-8 col-sm-8 detail-data">
+			<ul class="list-group">
+			  	<li class="list-group-item">
+				  		{{model.leave.approveComments}}
+
+
+				</li>
+			</ul>
+		</div>
+	</div>
+	{{/if}}
+
+	{{#if model.leave.rejectComments}}
+	<div class="row">
+
+		<div class="col-md-2 col-sm-2 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Reject </li>
+			</ul>
+		</div>
+		<div class="col-md-8 col-sm-8 detail-data">
+			<ul class="list-group">
+			  	<li class="list-group-item">
+				  		{{model.leave.rejectComments}}
+
+
+				</li>
+			</ul>
+		</div>
+		</div>
+	{{/if}}
+
+	{{#if model.leave.cancelComments}}
+	<div class="row">
+		<div class="col-md-2 col-sm-2 deatil-label">
+			<ul class="detail-label-group">
+			  <li class="detail-label-item">Cancel </li>
+			</ul>
+		</div>
+		<div class="col-md-8 col-sm-8 detail-data">
+			<ul class="list-group">
+			  	<li class="list-group-item">
+				  		{{model.leave.cancelComments}}
+
+
+				</li>
+			</ul>
+		</div>
+		</div>
+	{{/if}}
+	
+{{/if}}
+
 {{confirm-modal model=model confirmMsg=confirmMsg confirmRequest=(action 'confirm')}}
