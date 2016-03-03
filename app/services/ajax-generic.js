@@ -4,7 +4,7 @@ import config from '../config/environment';
 export default Ember.Service.extend({
 	modalShow: Ember.inject.service('modal-show'),
 	cookieCheck: function(){
-		if(document.cookie.toString().indexOf("sessionId") > -1){
+		if(document.cookie.toString().indexOf("JSESSIONID") > -1){
 			return true;
 		}
 		else{
