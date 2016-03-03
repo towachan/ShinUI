@@ -62,6 +62,7 @@ export default Ember.Controller.extend({
 			this.get('ajaxGeneric').post(data, appController).then(function(response){
 				appController.get('modalShow').show(appController, 
 											"System Message",
+											"success",
 											 "Operation success!",
 											  true, "#alertModal");
 			});

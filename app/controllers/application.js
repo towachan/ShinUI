@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
 	modalShow: Ember.inject.service('modal-show'),
 
 	isLogin: function(){
+
 		if(this.get('currentPath').toString().indexOf("login") > -1 || this.get('currentPath').toString().indexOf("quickApprove") > -1){
 			return true;
 		}
@@ -16,23 +17,28 @@ export default Ember.Controller.extend({
 			};
 			var _this = this;
 			this.get('ajaxGeneric').post(data, this).then(function(response){
-				_this.set('currentUserId', response.staffId);
 				_this.set('currentUserName', response.staffName);
+
 				_this.set('currentSys', response.system);
 				var currentSys = _this.get('currentSys');
+
 				if(currentSys === "leave"){
+					var imageUrl = "../img/bk-2.jpg";
 					_this.set('isLeave', true);
 					_this.set('isTravel', false);
 				}
 				if(currentSys === "travel"){
+					var imageUrl = "../img/bk.jpg";
 					_this.set('isTravel', true);
 					_this.set('isLeave', false);
 				}
+				Ember.$('body').css('background-image', 'url(' + imageUrl + ')');
+				
 			});
 			return false;
 		}
 		else{
-			this.get('modalShow').show(this, "Error", "Session unvalid! Please log in.", true, "#alertModal", "/login");
+			this.get('modalShow').show(this, "Session unvalid!", "error", "Please log in.", true, "#alertModal", "/login");
 			return false;
 		}
 	}.property('currentPath'),
@@ -46,11 +52,8 @@ export default Ember.Controller.extend({
 			this.get('ajaxGeneric').post(data,this).then(function(response){
 
 			});
-			this.set('modalHeader', "Log Out");
-			this.set('modalMsg', "You have been logged out.");
-			this.set('modalReload', true);
-			Ember.$('#alertModal').modal();
-			this.transitionToRoute('/login');
+			this.get('modalShow').show(this, "Log Out", "info", "You have been logged out.", true, "#alertModal", "/login");
+
 		},
 
 		switchSystem: function(){
@@ -69,6 +72,10 @@ export default Ember.Controller.extend({
 					_this.transitionToRoute('sysInfo');
 				}
 			})
+		},
+
+		naviRoute: function(route){
+			this.transitionToRoute(route);
 		}
 	}
 });

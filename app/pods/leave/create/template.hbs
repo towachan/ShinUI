@@ -76,7 +76,7 @@
 		<div class="col-md-3 col-sm-6 create-data">
 			<ul class="create-data-group">
 				<div class="input-group create-data-input" >
-					{{input type="text" class="form-control" value=currentUser.staffId disabled="true"}}
+					{{input type="text" class="form-control" value=currentUser.username disabled="true"}}
 				</div>
 				<div class="input-group create-data-input" >
 					{{input type="text" class="form-control" value=currentUser.staffName disabled="true"}}
@@ -98,10 +98,10 @@
 		<div class="col-md-2 col-sm-4 create-label">
 			<ul class="create-label-group">
 			  <li class="create-label-item">Leave Type</li>
-			  <li class="create-label-item">Leave Days</li>
 			  <li class="create-label-item">Is Core Leave</li>
 			  <li class="create-label-item">Start Date</li>
 			  <li class="create-label-item">End Date</li>
+			  <li class="create-label-item">Leave Days</li>
 			</ul>
 		</div>
 
@@ -114,10 +114,6 @@
 					</select>
 				</div>
 
-				<div class="input-group create-data-input" >
-					{{input type="text" class="form-control" value=leaveDays disabled="true"}}
-					<span class="input-group-addon">HWD</span>
-				</div>
 
 				<div class="input-group create-data-input" >
 					<select class="form-control" id="isCoreLeave" onchange={{action "coreLeaveChange"}}>
@@ -149,6 +145,10 @@
 
 				</div>
 
+				<div class="input-group create-data-input" >
+					{{input type="text" class="form-control" value=leaveDays disabled="true"}}
+					<span class="input-group-addon">HWD</span>
+				</div>
 
 			</ul>
 		</div>

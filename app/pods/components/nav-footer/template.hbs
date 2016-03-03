@@ -29,132 +29,117 @@
 </nav>
 
 
-<div class="container-fluid">
+<div class="container-fluid" id="section1">
   
   <div class="row content-box">
     <div class="col-xs-2 col-md-2 side-nav well ">
 
-          <ul class="nav nav-pills nav-stacked">
+        <table class="nav-table">
+            <tr>
+              <td class="nav-icon bk-red"><span class="glyphicon glyphicon-info-sign " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'navi' "sysInfo"}}>&nbsp;System Information
+                  <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+              </td>
+            </tr>
 
-            <li role="presentation">
-              {{#link-to 'sysInfo' class="nav-link"}}
-              <span class="glyphicon glyphicon-info-sign " aria-hidden="true"></span>
-              <b>&nbsp;System Information</b>
-              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>{{/link-to}}
-            </li>
-
-            <li role="presentation" >
-              <a onclick={{action "toggleExpand"}}  id="dashboard" class="nav-link">
-                <span class="glyphicon glyphicon-dashboard icon-bar " aria-hidden="true"></span>
-                <b>&nbsp;Dashboard</b>
-                <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="dashboard-chevron"></span>
-              </a>
-
-              {{#if dashboardExpand}}
-                <ul class="nav nav-pills nav-stacked">
-                  {{#if isLeave}}
-                    <li>{{#link-to 'dashboard.leave' class="nav-link nav-link-inner"}}
-                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Leave</b>
-                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
-                          {{/link-to}}
-                    </li>
-                  {{/if}}
-
-                  {{#if isTravel}}
-                    <li>{{#link-to 'dashboard.leave' class="nav-link nav-link-inner"}}
-                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Travel</b>
-                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
-                          {{/link-to}}
-                    </li>
-                  {{/if}}
-                </ul>
-              {{/if}}
-
-            </li>
-
-
+            <tr>
+              <td class="nav-icon bk-orange"><span class="glyphicon glyphicon-dashboard icon-bar " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action "toggleExpand"}}  id="dashboard">&nbsp;Dashboard
+                  <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="dashboard-chevron"></span>
+              </td>
+            </tr>
+            {{#if dashboardExpand}}
+              <tr>
+              <td class="nav-sub-icon"><span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span></td>
+                {{#if isLeave}}
+                <td class="nav-sub-lable" onclick={{action 'navi' "dashboard.leave"}}>&nbsp;Leave
+                    <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                </td>
+                {{/if}}
+                {{#if isTravel}}
+                <td class="nav-sub-lable" onclick={{action 'navi' "dashboard.leave"}}>&nbsp;Travel
+                    <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                </td>
+                {{/if}}
+              </tr>
+            {{/if}}
 
 
             {{#if isLeave}}
-              <li role="presentation">
-                <a onclick={{action "toggleExpand"}} id="myLeave" class="nav-link">
-                  <span class="glyphicon glyphicon-calendar " aria-hidden="true"></span>
-                    <b>&nbsp;My Leave</b>
+            <tr>
+              <td class="nav-icon bk-yellow"><span class="glyphicon glyphicon-calendar " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action "toggleExpand"}} id="myLeave">&nbsp;My Leave
                   <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="myLeave-chevron"></span>
-                </a>
+              </td>
+            </tr>
 
-                {{#if myLeaveExpand}}
-                <ul class="nav nav-pills nav-stacked">
-                    <li>{{#link-to 'leave.create' class="nav-link nav-link-inner"}}
-                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Create</b>
-                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
-                          {{/link-to}}
-                    </li>
-                </ul>
-                {{/if}}
-
-              </li>
+            {{#if myLeaveExpand}}
+                <td class="nav-sub-icon"><span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span></td>
+                <td class="nav-sub-lable" onclick={{action 'navi' "leave.create"}}>&nbsp;Create Leave
+                    <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                </td>
+            {{/if}}
             {{/if}}
 
             {{#if isTravel}}
-              <li role="presentation">
-                <a onclick={{action "toggleExpand"}} id="myTravel" class="nav-link">
-                  <span class="glyphicon glyphicon-plane " aria-hidden="true"></span>
-                    <b>&nbsp;My Travel</b>
+            <tr>
+              <td class="nav-icon bk-yellow"><span class="glyphicon glyphicon-plane " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action "toggleExpand"}} id="myTravel">&nbsp;My Travel
                   <span class="glyphicon glyphicon-plus right" aria-hidden="true" id="myTravel-chevron"></span>
-                </a>
+              </td>
+            </tr>
 
-                {{#if myTravelExpand}}
-                <ul class="nav nav-pills nav-stacked">
-                    <li>{{#link-to 'leave.create' class="nav-link nav-link-inner"}}
-                          <span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span><b>&nbsp;Create Travel Request</b>
-                          <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
-                          {{/link-to}}
-                    </li>
-                </ul>
-                {{/if}}
-
-              </li>
+            {{#if myTravelExpand}}
+                <td class="nav-sub-icon"><span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span></td>
+                <td class="nav-sub-lable" onclick={{action 'navi' "leave.create"}}>&nbsp;Create Travel
+                    <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+                </td>
+            {{/if}}
             {{/if}}
 
 
 
+            <tr>
+              <td class="nav-icon bk-green"><span class="glyphicon glyphicon-retweet " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'switch'}}>&nbsp;System Switch
+                  <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+              </td>
+            </tr>
 
-            <li role="presentation">
-              <a {{action 'switch'}} class="nav-link"><span class="glyphicon glyphicon-retweet " aria-hidden="true"></span>
-              <b>&nbsp;System Switch</b>
-              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span></a>
-            </li>
+            <tr>
+              <td class="nav-icon bk-cran"><span class="glyphicon glyphicon-list-alt " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'navi' "report"}}>&nbsp;Report
+                  <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+              </td>
+            </tr>
 
-            <li role="presentation">
-              {{#link-to 'report' class="nav-link"}}
-              <span class="glyphicon glyphicon-list-alt " aria-hidden="true"></span>
-              <b>&nbsp;Report</b>
-              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>{{/link-to}}
-            </li>
+            <tr>
+              <td class="nav-icon bk-blue"><span class="glyphicon glyphicon-knight " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'navi' "support"}}>&nbsp;Support
+                  <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+              </td>
+            </tr>
 
+            <tr>
+              <td class="nav-icon bk-purple"><span class="glyphicon glyphicon-off " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'logout'}}>&nbsp;Log Out
+                  <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
+              </td>
+            </tr>
 
-            <li role="presentation">
-              {{#link-to 'support' class="nav-link"}}
-              <span class="glyphicon glyphicon-knight " aria-hidden="true"></span>
-              <b>&nbsp;Support</b>
-              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>{{/link-to}}
-            </li>
-
-            <li role="presentation">
-              <a {{action 'logout'}} class="nav-link"><span class="glyphicon glyphicon-off " aria-hidden="true"></span>
-              <b>&nbsp;Log Out</b>
-              <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span></a>
-            </li>
-
-        </ul>
+        </table>
 
     </div>
 
-    <div class="col-xs-2 col-md-10 col-xs-offset-2 col-md-offset-2 ">
-    <div class="well">
+    <div  class="col-xs-2 col-md-10 col-xs-offset-2 col-md-offset-2 ">
+    <div class="well" >
     {{yield}}
-      
+      <button {{action 'jumpToTop'}}type="button" class=" toTop btn btn-default btn-lg">
+
+          <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+
+      </button>
+
     </div>
           
     </div>

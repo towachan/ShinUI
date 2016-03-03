@@ -29,6 +29,10 @@ export default Ember.Component.extend({
 			this.sendAction('switch');
 		},
 
+		navi: function(route){
+			this.sendAction('navi', route);
+		},
+
 		toggleExpand: function(event){
 			var id = event.target.id;
 			if(id === ""){
@@ -57,6 +61,12 @@ export default Ember.Component.extend({
 			}
 
 			console.log(this.get(isExpand));
+		},
+
+		jumpToTop: function(){
+			    $('html, body').animate({
+        			scrollTop: $("#section1").offset().top
+    			}, 1000);
 		}
 	}
 });

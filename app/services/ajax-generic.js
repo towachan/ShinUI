@@ -32,10 +32,10 @@ export default Ember.Service.extend({
 					}
 					else{
 						if(response.errorCode === "sessionUnValid"){
-							appController.get('modalShow').show(appController, "Error", response.errorMessage, true, "#alertModal", "/login");
+							appController.get('modalShow').show(appController, "Session Unvalid", "error", response.errorMessage, true, "#alertModal", "/login");
 						}
 						if(response.errorCode === "LOGINVALIDATE"){
-							appController.get('modalShow').show(appController, "Log In Fail", response.errorMessage, false, "#alertModal");
+							appController.get('modalShow').show(appController, "Log In Fail", "error", response.errorMessage, false, "#alertModal");
 						}
 						// reject(response);
 					}

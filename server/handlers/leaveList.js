@@ -17,15 +17,33 @@ function getList(req){
    	}
 
    	for(var i=0; i< len	; i++){
-   		if(fileData[i].status === status && fileData[i].leaveType === type){
-   			arr[j] = fileData[i];
-   			j++;
-   		}
+         if(fileData[i].status != "sample"){
+            if(type === "Total" &&  status === "total"){
+               arr[j] = fileData[i];
+               j++;
+            }
+            else if(type === "Total"){
+               if(fileData[i].status === status ){
+                  arr[j] = fileData[i];
+                  j++;
+               }
+            }
+            else if(status === "total"){
+               if(fileData[i].leaveType === type ){
+                  arr[j] = fileData[i];
+                  j++;
+               }
+            }
+      		else if(fileData[i].status === status && fileData[i].leaveType === type){
+      			arr[j] = fileData[i];
+      			j++;
+      		}
+         }
    	}
 
    			console.log(typeof category);
-   			console.log(typeof sessionData.staffId);
-   	if( (category === "createdByMe" && sessionData.staffId === "111") || (category === "pendOnMe" && sessionData.staffId === "222") ){
+   			console.log(typeof sessionData.username);
+   	if( (category === "createdByMe" && sessionData.username === "111") || (category === "pendOnMe" && sessionData.username === "222") ){
    		return {
    			responseStatus: "success",
    			leaves: arr

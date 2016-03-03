@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	staffId: null,
 	staffName: null,
 	startDate: null,
 	endDate:null,
@@ -172,7 +171,7 @@ export default Ember.Controller.extend({
 				cmd: 'createLeave',
 				createType: type,
 				leave: {
-					staffId: this.get('currentUser').staffId,
+					username: this.get('currentUser').username,
 					staffName: this.get('currentUser').staffName,
 					title: this.get('currentUser').title,
 					startDate: this.get('startDate'),
@@ -191,7 +190,8 @@ export default Ember.Controller.extend({
 			var appController = this.get('appController');
 			this.get('ajaxGeneric').post(data, appController).then(function(response){
 				appController.get('modalShow').show(appController, 
-											"Submit success!", 
+											"Submit success!",
+											"success", 
 											"Approve link is " + response.approveLink, 
 											true, "#alertModal");
 			});

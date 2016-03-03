@@ -7,7 +7,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{header}}</h4>
+        <h4 class="modal-title">
+        {{#if isError}}
+        <span class="label label-danger">ERROR</span>
+        {{/if}}
+        
+        {{#if isInfo}}
+        <span class="label label-info">INFO</span>
+        {{/if}}
+
+        {{#if isSuccess}}
+        <span class="label label-success">SUCCESS</span>
+        {{/if}}
+
+        {{header}}
+        </h4>
       </div>
       <div class="modal-body">
         <p>{{msg}}</p>

@@ -3,19 +3,19 @@ var session = require('./session');
 
 function getResult(req){
 
-    var staffId = req.body.staffId;
+    var username = req.body.username;
     var password = req.body.password;
     var loginSystem = req.body.loginSystem;
 
-    if(staffId === "222" && password === "aaa" ){
-      var sessionId = session.createSession({staffId: "222", staffName: "manager", title: "manager",approverName:"bigManager", system: loginSystem}); 
+    if(username === "222" && password === "aaa" ){
+      var sessionId = session.createSession({username: "222", staffName: "manager", title: "manager",approverName:"bigManager", system: loginSystem}); 
       return{
         cmd: "login",
         responseStatus: "success"
       };
     }
-    else if(staffId ==="111" && password === "bbb"){
-      var sessionId = session.createSession({staffId: "111", staffName: "staff", title: "staff", approverName: "manager", system: loginSystem}); 
+    else if(username ==="111" && password === "bbb"){
+      var sessionId = session.createSession({username: "111", staffName: "staff", title: "staff", approverName: "manager", system: loginSystem}); 
       return{
         cmd: "login",
         responseStatus: "success"

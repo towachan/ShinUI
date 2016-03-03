@@ -35,7 +35,7 @@ export default Ember.Route.extend({
 				cmd: 'refresh',
 			};
 			controller.get('ajaxGeneric').post(data_ui, appController).then(function(response){
-				controller.set('currentUser', response.staffId);
+				controller.set('currentUser', response.username);
 
 				var currentUser = controller.get('currentUser');
 				var approver = controller.get('model').leave.approverId;

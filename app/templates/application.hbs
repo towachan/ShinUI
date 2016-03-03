@@ -4,9 +4,9 @@
 {{/if}}
 
 {{#unless isLogin}}
-{{#nav-footer isLeave=isLeave isTravel=isTravel user=currentUserName switch=(action "switchSystem") logout=(action "jumpToLogin")}}
+{{#nav-footer isLeave=isLeave isTravel=isTravel user=currentUserName navi=(action "naviRoute") switch=(action "switchSystem") logout=(action "jumpToLogin")}}
 {{outlet}}
 {{/nav-footer}}
 {{/unless}}
 
-{{alert-modal header=modalHeader msg=modalMsg isReload=modalReload}}
+{{alert-modal header=modalHeader msg=modalMsg isReload=modalReload isError=modalIsError isSuccess=modalIsSuccess isInfo=modalIsInfo}}

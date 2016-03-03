@@ -17,7 +17,7 @@ function getSessionData(req){
 	return {
 		cmd: 'refresh',
 		responseStatus: 'success',
-		staffId: sessionData.staffId,
+		username: sessionData.username,
 		staffName: sessionData.staffName,
 		title: sessionData.title,
 		system: sessionData.system,
