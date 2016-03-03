@@ -33,13 +33,13 @@ function createLeave(req){
 	else{
 		leave.status = "pending";
 	}
-	leave.requestorId = leave.username;
-	leave.requestorName = leave.staffName;
+	leave.requestorId = leave.requestorId;
+	leave.requestorName = leave.requestorName;
 	leave.approverId = "222";
 	leave.approverName = "manager";
  
 
-	var leaveFile = 'server/json/leaves/' + leave.username + '/' + leaveId.toString() + '.json';
+	var leaveFile = 'server/json/leaves/' + leave.requestorId + '/' + leaveId.toString() + '.json';
 	fs.writeFileSync(leaveFile,JSON.stringify(leave));
 	var approveLink = "http://133.13.136.137:4200/quickApprove?leaveId=" + leaveId;
 

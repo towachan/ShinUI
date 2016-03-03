@@ -6,7 +6,7 @@
 	"properties": {
 		"cmd":{
 			"type": "string",
-			"enum": ["refresh"]
+			"enum": ["switchSystem"]
 		}
 	}
 }

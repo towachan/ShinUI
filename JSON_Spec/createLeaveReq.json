@@ -1,15 +1,15 @@
 {
 	"$schema" : "http://json-schema.org/draft-04/schema#",
-	"title" : "submitLeaveReq",
-	"description" : "Submit new leave request",
+	"title" : "createLeaveReq",
+	"description" : "Create new leave request",
 	"type" : "object",
 	"properties" : {
 		"cmd" : {
 			"description" : "Request cmd",
 			"type" : "string",
-			"enum" :["submitLeave"]
+			"enum" :["createLeave"]
 		},
-		"staffId" : {
+		"username" : {
 			"description" : "Leave requester",
 			"type" : "number"
 		},
@@ -20,14 +20,6 @@
 			"description" : "Leave request",
 			"type" : "object",
 			"properties" : {
-				"leaveId" : {
-					"description" : "Leave request ID",
-					"type" : "string"
-				},
-				"status" : {
-					"description" : "Leave request status",
-					"type" : "number"
-				},
 				"leaveType" : {
 					"description" : "Leave type",
 					"type" : "number"
@@ -41,16 +33,12 @@
 					"type" : "string"
 				},
 				"requestorId" : {
-					"description" : "Leave requester ID",
+					"description" : "Leave requestor ID",
 					"type" : "number"
 				},
 				"requestorName" : {
-					"description" : "Leave requester name",
+					"description" : "Leave requestor name",
 					"type" : "string"
-				},
-				"approverId" : {
-					"description" : "Leave approver ID",
-					"type" : "number"
 				},
 				"startHalf" : {
 					"description" : "Leave start date AM/PM",

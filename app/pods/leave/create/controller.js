@@ -169,10 +169,11 @@ export default Ember.Controller.extend({
 
 			var data = {
 				cmd: 'createLeave',
+				username: this.get('currentUser').username,
 				createType: type,
 				leave: {
-					username: this.get('currentUser').username,
-					staffName: this.get('currentUser').staffName,
+					requestorId: this.get('currentUser').username,
+					requestorName: this.get('currentUser').staffName,
 					title: this.get('currentUser').title,
 					startDate: this.get('startDate'),
 					startHalf: this.get('startHalf'),
