@@ -53,7 +53,7 @@ module.exports = function(environment) {
 
   if(environment === 'tc'){
     ENV.baseURL = '/dist';
-    ENV.APP.ajax = "http://bigsword.online:8080/bigsword/msgchannel";
+    ENV.APP.ajax = "http://localhost:8080/bigsword/msgchannel";
   }
 
   if( environment === 'dist'){
