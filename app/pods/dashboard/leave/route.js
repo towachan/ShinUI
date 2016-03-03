@@ -4,8 +4,7 @@ export default Ember.Route.extend({
 	ajaxGeneric: Ember.inject.service('ajax-generic'),
 	model: function(){
 		var data = {
-			cmd: 'dashboard',
-			type: 'leave'
+			cmd: 'leaveDashboard'
 		};
 
 		var appController = this.controllerFor('application');

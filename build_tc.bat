@@ -1,2 +1,2 @@
 ::script for build to app server
-ember build -e dist
+ember build -e tc

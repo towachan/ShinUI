@@ -1,7 +1,7 @@
 {
 	"$schema" : "http://json-schema.org/draft-04/schema#",
 	"title" : "dashboardRes",
-	"description" : "dashboard response",
+	"description" : "Leave dashboard response",
 	"type" : "object",
 	"properties" : {
 		"cmd" : {

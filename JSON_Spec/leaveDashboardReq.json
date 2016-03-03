@@ -1,0 +1,16 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "dashboardReq",
+	"description" : "Leave dashboard request",
+	"type" : "object",
+	"properties" : {
+		"cmd" : {
+			"description" : "Request cmd",
+			"type" : "string",
+			"enum" :["leaveDashboard"]
+		}
+			
+		
+	},
+	"required" : ["cmd"]
+}

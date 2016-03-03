@@ -1,6 +1,5 @@
 
 function getDashBoard(req){
-	if(req.body.type === "leave"){
 		return {
 			responseStatus: "success",
 			createdByMe:[
@@ -64,7 +63,7 @@ function getDashBoard(req){
 				
 			]
 		};
-	}
+	
 	return false;
 }
 
