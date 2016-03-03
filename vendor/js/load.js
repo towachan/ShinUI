@@ -1,10 +1,11 @@
 // $(document).on({
 //     ajaxStart: function(){
-//     	$('#pleaseWaitDialog').modal();
-//      	console.log('loading'); 
+//     	// $('#loadModal').modal("show");
+
+//      		console.log('loading'); 
 //      },
 //     ajaxStop: function(){
-//     	$('#pleaseWaitDialog').modal('hide');
+//     	$('#loadModal').modal('hide');
 // 		console.log('ready'); 
 // 	}    
 // });
