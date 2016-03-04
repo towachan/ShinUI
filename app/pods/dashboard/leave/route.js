@@ -14,7 +14,7 @@ export default Ember.Route.extend({
 			var pendOnMe = response.pendOnMe;
 
 			var rowHead = controller.get('rowHead');
-			var tbHead = controller.get('tbHead');
+			var tbHead = controller.get('_tbHead');
 			tbHead[0] = "type";
 			for(var i=1; i<tbHead.length; i++){
 				tbHead[i] = controller.get('dashboardData').firstCaseChg(tbHead[i], 0);

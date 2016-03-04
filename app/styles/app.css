@@ -367,3 +367,7 @@ td.nav-sub-lable:hover {
   bottom: 20px;
   right: 20px;
 }
+
+.list-page:hover{
+  cursor: pointer!important;
+}

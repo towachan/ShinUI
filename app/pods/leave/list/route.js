@@ -18,7 +18,31 @@ export default Ember.Route.extend({
 				status: status
 		};
 		this.get('ajaxGeneric').post(data, appController).then(function(response){
-			controller.set('model', response);
+
+			if(response.leaves.length){
+				var leaves = controller.get('listArray').sort(response.leaves,"leaveId",1,"string");
+				controller.set('leaves', leaves);
+				
+				var leavesPaged = controller.get('listArray').splitArr(leaves.slice(0), 2);
+
+				controller.set('leavesPaged', leavesPaged);
+
+				var pages = [];
+				for(var i=0; i<leavesPaged.length; i++){
+					var number = i+1;
+					pages.push(number);
+				}
+
+				controller.set('pages', pages);
+				controller.set('currentPage', 0);
+
+				controller.set('model', leavesPaged[0]);
+				controller.set('isSort', false);
+			}
+			else{
+				controller.set('model', response);
+				controller.set('isSort',"disabled");
+			}
 
 			controller.set('isCancel', false);
 			controller.set('isSubmit', false);
@@ -37,6 +61,11 @@ export default Ember.Route.extend({
 			console.log(category);
 			
 		});
+
+	},
+
+	afterModel: function(){
+		$("#1").addClass('active');
 
 	}
 });
