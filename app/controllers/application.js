@@ -5,13 +5,14 @@ export default Ember.Controller.extend({
 	isTravel:null,
 	ajaxGeneric: Ember.inject.service('ajax-generic'),
 	modalShow: Ember.inject.service('modal-show'),
+	loginController: Ember.inject.controller('login'),
 
 	isLogin: function(){
 
 		if(this.get('currentPath').toString().indexOf("login") > -1 || this.get('currentPath').toString().indexOf("quickApprove") > -1){
 			return true;
 		}
-		else if(this.get('ajaxGeneric').cookieCheck()){
+		else {
 			var data = {
 					cmd: 'refresh'
 			};
@@ -19,33 +20,29 @@ export default Ember.Controller.extend({
 			this.get('ajaxGeneric').post(data, this).then(function(response){
 				_this.set('currentUserName', response.staffName);
 
+				if(_this.get('currentSys')){
+					$('body').removeClass(_this.get('currentSys'));
+				}
 				_this.set('currentSys', response.system);
-				var currentSys = _this.get('currentSys');
+				$('body').addClass(_this.get('currentSys'));
 
+				var currentSys = _this.get('currentSys');
 				if(currentSys === "leave"){
-					var imageUrl = "../img/bk-2.jpg";
 					_this.set('isLeave', true);
 					_this.set('isTravel', false);
 				}
 				if(currentSys === "travel"){
-					var imageUrl = "../img/bk.jpg";
 					_this.set('isTravel', true);
 					_this.set('isLeave', false);
 				}
-				Ember.$('body').css('background-image', 'url(' + imageUrl + ')');
 				
 			});
-			return false;
-		}
-		else{
-			this.get('modalShow').show(this, "Session unvalid!", "error", "Please log in.", true, "#alertModal", "/login");
 			return false;
 		}
 	}.property('currentPath'),
 
 	actions: {
 		jumpToLogin: function(){
-			// document.cookie = document.cookie + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
 			var data = {
 				cmd: 'logout'
 			};

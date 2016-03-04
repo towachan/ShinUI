@@ -6,7 +6,7 @@ function sessionValidate(req, res, cmd){
 	if(cmd === "logout"){
 		res.clearCookie('JSESSIONID');
 	}
-	else if(req.cookies.sessionId !== undefined){
+	else if(req.cookies.JSESSIONID !== undefined){
 		res.cookie('JSESSIONID', "session");
 	}
 	return res;

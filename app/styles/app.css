@@ -1,12 +1,20 @@
 @font-face {
-  font-family: unispace;
+  font-family: Lato;
   src: url('../fonts/Lato-Regular.ttf');
 }
 
 body {
+  font-family: "Lato";
+}
+
+.leave {
   background-image: url('../img/bk-2.jpg');
   background-attachment: fixed;
-  font-family: "unispace";
+}
+
+.travel {
+  background-image: url('../img/bk.jpg');
+  background-attachment: fixed;
 }
 
 .container.loginBox {

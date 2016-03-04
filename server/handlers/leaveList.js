@@ -18,11 +18,11 @@ function getList(req){
 
    	for(var i=0; i< len	; i++){
          if(fileData[i].status != "sample"){
-            if(type === "Total" &&  status === "total"){
+            if(type === "total" &&  status === "total"){
                arr[j] = fileData[i];
                j++;
             }
-            else if(type === "Total"){
+            else if(type === "total"){
                if(fileData[i].status === status ){
                   arr[j] = fileData[i];
                   j++;

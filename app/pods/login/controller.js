@@ -3,29 +3,22 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	ajaxGeneric: Ember.inject.service('ajax-generic'),
 	modalShow: Ember.inject.service('modal-show'),
+	appController: Ember.inject.controller('application'),
 	username:"",
 	password:"",
 	errorMessage:"",
 	loginSystem: "leave",	
 	init: function(){
-		var imageUrl = "../img/bk-2.jpg";
-		Ember.$('body').css('background-image', 'url(' + imageUrl + ')');
+		$('body').addClass(this.get('loginSystem'));
 
 	},
 
 	actions: {
 		switchSystem: function(){
 			var loginSystem = Ember.$("#loginSystem").val();
+			$('body').removeClass(this.get('loginSystem'));
 			this.set('loginSystem', loginSystem);
-
-			if(loginSystem === "leave"){
-				var imageUrl = "../img/bk-2.jpg";
-			}
-			else{
-				var imageUrl = "../img/bk.jpg";
-			}
-			Ember.$('body').css('background-image', 'url(' + imageUrl + ')');
-
+			$('body').addClass(this.get('loginSystem'));
 		},
 		validate: function(){
 			var controller = this.controllerFor('login');

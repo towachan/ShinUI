@@ -3,15 +3,12 @@ var session = require('./session');
 function getSessionData(req){
 	var sessionData = session.getSession("session");
 
-	if(req.cookies.sessionId === undefined){
+	if(req.cookies.JSESSIONID === undefined){
 		return {
 			cmd: 'refresh',
 			responseStatus: 'fail',
-			data: {
-				user:{
-
-				}
-			}
+			errorCode: "sessionUnValid",
+			errorMessage: "Please Log in."
 		};
 	}
 	return {
