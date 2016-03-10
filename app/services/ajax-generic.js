@@ -14,8 +14,9 @@ export default Ember.Service.extend({
 
 
 	post: function(data, appController ){
+		appController.get('spinner').spin(document.body);
+		appController.set('isLoading', true);
 		var url = config.APP.ajax;
-		console.log("url: " + url);
 		var promise = new Ember.RSVP.Promise(function(resolve, reject){
 			Ember.$.ajax({
 				url: url,
@@ -27,6 +28,8 @@ export default Ember.Service.extend({
 
 
 				success: function(response){
+					appController.get('spinner').stop();
+					appController.set('isLoading', false);
 					if(response.responseStatus === "success"){
 						resolve(response);
 					}
@@ -39,6 +42,13 @@ export default Ember.Service.extend({
 						}
 						// reject(response);
 					}
+				},
+
+				error: function(){
+					appController.get('spinner').stop();
+					appController.set('isLoading',false);
+
+					appController.get('modalShow').show(appController, "Network Problem", "error", "Can not get response from server!",false, "#alertModal");
 				}
 			});
 		});

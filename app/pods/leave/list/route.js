@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 	model: function(params){
 		var controller = this.controllerFor('leave.list');
 		var appController = this.controllerFor('application');
-		console.log(params);
+
 		var category = params.category;
 		var type = params.type;
 		var status = params.status;
@@ -21,23 +21,16 @@ export default Ember.Route.extend({
 
 			if(response.leaves.length){
 				var leaves = controller.get('listArray').sort(response.leaves,"leaveId",1,"string");
+
 				controller.set('leaves', leaves);
-				
-				var leavesPaged = controller.get('listArray').splitArr(leaves.slice(0), 2);
-
-				controller.set('leavesPaged', leavesPaged);
-
-				var pages = [];
-				for(var i=0; i<leavesPaged.length; i++){
-					var number = i+1;
-					pages.push(number);
-				}
-
-				controller.set('pages', pages);
+				controller.set('recordCount', leaves.length);
 				controller.set('currentPage', 0);
 
-				controller.set('model', leavesPaged[0]);
+				controller.send('sortList',{sortBy:"leaveId", orderBy:1, pageUnit:2});
+				controller.set('pageUnit',2);
 				controller.set('isSort', false);
+
+
 			}
 			else{
 				controller.set('model', response);
@@ -58,7 +51,6 @@ export default Ember.Route.extend({
 				controller.set('isApprove', true);
 			}
 
-			console.log(category);
 			
 		});
 

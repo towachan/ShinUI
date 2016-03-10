@@ -7,52 +7,72 @@ export default Ember.Controller.extend({
 	listArray: Ember.inject.service('list-array'),
 	multiArr: [],
 	isAction: "disabled",
-	sortBy: "leaveId",
-	sortOrder: 1,
 	leaves:[],
-	init: function(){
-		$("#1").addClass('active');
-		console.log('init');
-	},
+	leavesPaged:[],
+
+	sortByArr:[
+		{val: "leaveId", name: "Leave ID"},
+		{val: "requestorName", name: "Requestor"},
+		{val: "status", name: "Status"},
+		{val: "startDate", name: "Start Date"},
+		{val: "endDate", name: "End Date"},
+		{val: "leaveType", name: "Leave Type"},
+		{val: "createTime", name: "Create Time"}
+	],
+
+	orderByArr: [
+		{val: 1, name: "Ascending"},
+		{val: 0, name: "Descending"}
+	],
+
+	pageUnitArr: [
+		{val:2, name:"2"},
+		{val:3, name:"3"},
+		{val:4, name:"4"},
+		{val:10, name:"10"}
+	],
+
+
 	actions: {
+
 		pageChg: function(pageNo){
-			// var domPageID = "#page-" + pageNo;
-			pageNo = Number(pageNo) -1;
-			// if(!$(domPageID).hasClass("active")){
-				console.log("jump to " + pageNo);
-				var leavesPaged = this.get('leavesPaged');
-				this.set('model', leavesPaged[pageNo]);
+			var leavesPaged = this.get('leavesPaged');
+			this.set('model', leavesPaged[pageNo]);
 
-				// var currentPage =this.get('currentPage');
-				// var pages = this.get('pages');
-
-				// pages[currentPage].licls = "disabled";
-				// currentPage = pageNo;
-				// pages[currentPage].licls = "active";
-
-				// this.set('currentPage', pageNo);
-				// this.set('pages', pages);
-
-			// }
-
+			this.set('currentPage', pageNo);
 		},
 
-		sort: function(){
-			var sortBy = this.get('sortBy');
-			var sortOrder = this.get('sortOrder');
+		sortList: function(params){
 			var leaves = this.get('leaves');
-			var leavesPaged = this.get('leavesPaged');
+			this.set('currentPage', 0);
 			var currentPage = this.get('currentPage');
-			var type = "string";
-			// if(sortBy === "startDate" || sortBy === "endDate" || sortBy === "createTime"){
-			// 	type = "number";
-			// }
-			console.log(leaves);
-			console.log(leavesPaged);
-			leaves = this.get('listArray').sort(leaves, sortBy, sortOrder, type);
-			leavesPaged = this.get('listArray').splitArr(leaves.slice(0), 2);
+			
+			var sortBy = params.sortBy;
+			var orderBy = Number(params.orderBy);
+			var pageUnit = Number(params.pageUnit);
 
+			var type = "string";
+
+			leaves = this.get('listArray').sort(leaves, sortBy, orderBy, type);
+			var leavesPaged = this.get('listArray').splitArr(leaves.slice(0), pageUnit);
+
+			this.set('leaves', leaves);
+			this.set('leavesPaged', leavesPaged);
 			this.set('model', leavesPaged[currentPage]);
+			this.set('pageUnit', pageUnit);
+
+			var pages = [];
+			for(var i=0; i<leavesPaged.length; i++){
+				var number = i+1;
+				var page = {no: number, id: "page-" + number, licls:"disabled", acls: "list-page" };
+				pages.push(page);
+			}
+
+			pages[0].licls = "active";
+			pages[0].acls = " ";
+
+			this.set('pages', pages);
+
 		},
 
 
@@ -60,32 +80,8 @@ export default Ember.Controller.extend({
 			this.transitionToRoute('/leave/details/' + leaveId);
 		},
 
-		sortByChg: function(){
-			var sortBy = $('#sortBy').val();
-			this.set('sortBy', sortBy);
 
-		},
-
-		sortOrderChg: function(){
-			var sortOrder = $('#sortOrder').val();
-			this.set('sortOrder', sortOrder);
-		},
-
-
-		multi: function(leaveId){
-			var multiArr = this.get('multiArr');
-			var domLeaveId = "#" + leaveId;
-			if($(domLeaveId).hasClass("info")){
-				$(domLeaveId).removeClass("info");
-				multiArr = $.grep(multiArr, function(value) {
-  					return value != leaveId;
-				});
-			}
-			else {
-				$(domLeaveId).addClass("info");
-				multiArr.push(leaveId);
-
-			}
+		multi: function(multiArr){
 			this.set('multiArr', multiArr);
 			if(multiArr.length === 0){
 				this.set('isAction', "disabled");

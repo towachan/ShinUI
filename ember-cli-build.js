@@ -26,6 +26,7 @@ module.exports = function(defaults) {
   app.import('vendor/css/bootstrap-datepicker3.css', { destDir: 'assets'});
   app.import('vendor/css/bootstrap-datepicker3.css.map', { destDir: 'assets'});
   app.import('vendor/js/load.js', { destDir: 'assets'});
+  app.import('vendor/js/spin.js', { destDir: 'assets'});
 
       // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings.png',{destDir: 'img'});
   // app.import('bower_components/bootstrap/dist/img/glyphicons-halflings-white.png',{destDir: 'img'});

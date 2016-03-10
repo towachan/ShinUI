@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 	staffName: null,
 	startDate: null,
 	endDate:null,
-	leaveType: "Annual",
+	leaveType: "annual",
 	startHalf: 'AM',
 	endHalf: 'AM',
 	halfDays: ['AM','PM'],
@@ -189,13 +189,24 @@ export default Ember.Controller.extend({
 			};
 			var _this = this;
 			var appController = this.get('appController');
-			this.get('ajaxGeneric').post(data, appController).then(function(response){
-				appController.get('modalShow').show(appController, 
-											"Submit success!",
-											"success", 
-											"Approve link is " + response.approveLink, 
-											true, "#alertModal");
-			});
+			if(type === "submit"){
+				this.get('ajaxGeneric').post(data, appController).then(function(response){
+					appController.get('modalShow').show(appController, 
+												"Submit success!",
+												"success", 
+												"Approve link is " + response.approveLink, 
+												true, "#alertModal");
+				})
+			}
+			else{
+				this.get('ajaxGeneric').post(data, appController).then(function(response){
+					appController.get('modalShow').show(appController, 
+												"Save success!",
+												"success", 
+												"Your new request has been saved as draft.", 
+												true, "#alertModal");
+				});
+			}
 
 		}
 	}

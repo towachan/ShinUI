@@ -8,7 +8,6 @@ export default Ember.Service.extend({
 		for(var i=0; i<inputArr.length; i++){
 			middleArr.push(inputArr[i][key]);
 		}
-		console.log(middleArr);
 
 		if(type === "number"){
 			if(sortby === 1){
@@ -19,18 +18,14 @@ export default Ember.Service.extend({
 			}
 		}
 		else{
-			console.log("string: " + typeof sortby + sortby);
 			if(sortby === 1){
 				middleArr.sort();
-				console.log('sort1');
 			}
 			else{
 				middleArr.sort();
 				middleArr.reverse();
-				console.log('sort0');
 			}
 		}
-		console.log(middleArr);
 
 
 		for(var j=0; j<middleArr.length; j++){
@@ -41,7 +36,6 @@ export default Ember.Service.extend({
 			}
 		}
 
-		console.log(outputArr);
 		return outputArr;
 
 	},

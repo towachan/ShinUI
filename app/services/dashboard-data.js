@@ -56,6 +56,9 @@ export default Ember.Service.extend({
 				r[m] = firstCaseChg(r[m], 1);
 				r[m] = {cls: headClass, dt: r[m]};
 			} 
+			else if(Number(r[m]) === 0){
+				r[m] = {cls: "", dt: r[m], position:{}};
+			}
 			else{
 				r[m] = {cls: dtClass, dt: r[m], position:{row: row, col: colOrder[m] }};
 			}

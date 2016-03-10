@@ -29,5 +29,9 @@ export default Ember.Service.extend({
 		if(jumpTo){
 			controller.transitionToRoute(jumpTo);	
 		}
+	},	
+
+	loading: function(){
+		Ember.$('#spinModal').modal();
 	}
 });
