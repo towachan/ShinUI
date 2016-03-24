@@ -1,25 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	classNames: {
-		userInfoClass: "",
-		leaveListClass: "",
-		approveReqClass:""
-	},
 	isExpand: false,
 	dashboardExpand: false,
 	myLeaveExpand: false,
 	isRight: true,
 	isDown: false,
-	initialize: function(){
-		var classNames = this.get('classNames');
-		for(var c in classNames){
-			classNames[c] = classNames[c].toString().replace("active", "");
+	winWide: window.innerWidth,
+	isSide: function(){
+		if(this.get('winWide') < 1137){
+			return false;
 		}
-		this.set('classNames', classNames);
-	}.on('init'),
+		return true;
+	}.property('winWide'),
 
 	actions: {
+
 		logout: function(){
 
 			this.sendAction('logout');

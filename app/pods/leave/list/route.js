@@ -26,7 +26,7 @@ export default Ember.Route.extend({
 				controller.set('recordCount', leaves.length);
 				controller.set('currentPage', 0);
 
-				controller.send('sortList',{sortBy:"leaveId", orderBy:1, pageUnit:2});
+				controller.send('sortList',{sortBy:"leaveId", orderBy:0, pageUnit:10});
 				controller.set('pageUnit',2);
 				controller.set('isSort', false);
 
@@ -41,7 +41,7 @@ export default Ember.Route.extend({
 			controller.set('isSubmit', false);
 			controller.set('isApprove', false);
 
-			if(category === "createdByMe" && status === "pending"){
+			if(category === "createdByMe" && (status === "approved" || status === "rejected") ){
 				controller.set('isCancel', true);
 			}
 			else if(category === "createdByMe" && status === "draft"){

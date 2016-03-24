@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidenav" aria-expanded="false" aria-controll="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -12,16 +12,20 @@
 
         <a class="navbar-brand navbar-font-color"  >
         {{#if isLeave}}
-          System LEAVE
+          System E-LEAVE
         {{/if}}
         {{#if isTravel}}
-          System TRAVEL
+          System E-TRAVEL
         {{/if}}
         </a>
+
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" >
+        <button type="button" class="btn btn-default navbar-btn" data-toggle="tooltip" title="Switch System" onclick={{action 'switch'}}>
+            <span class="glyphicon glyphicon-retweet " aria-hidden="true"></span>
+        </button>
         <p class="navbar-text navbar-right navbar-font-color">Logged in as {{user}}&nbsp;&nbsp;  </p>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -32,12 +36,12 @@
 <div class="container-fluid" id="section1">
   
   <div class="row content-box">
-    <div class="col-xs-2 col-md-2 side-nav well ">
+    <div class=" col-md-2 side-nav well " id="sidenav">
 
         <table class="nav-table">
             <tr>
               <td class="nav-icon bk-red"><span class="glyphicon glyphicon-info-sign " aria-hidden="true"></span></td>
-              <td class="nav-lable" onclick={{action 'navi' "sysInfo"}}>&nbsp;System Information
+              <td class="nav-lable" onclick={{action 'navi' "sysInfo"}}>&nbsp;Notification
                   <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
               </td>
             </tr>
@@ -75,7 +79,7 @@
 
             {{#if myLeaveExpand}}
                 <td class="nav-sub-icon"><span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span></td>
-                <td class="nav-sub-lable" onclick={{action 'navi' "leave.create"}}>&nbsp;Create Leave
+                <td class="nav-sub-lable" onclick={{action 'navi' "leave.create"}}>&nbsp;Create
                     <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
                 </td>
             {{/if}}
@@ -91,7 +95,7 @@
 
             {{#if myTravelExpand}}
                 <td class="nav-sub-icon"><span class="glyphicon glyphicon-unchecked icon-bar " aria-hidden="true"></span></td>
-                <td class="nav-sub-lable" onclick={{action 'navi' "leave.create"}}>&nbsp;Create Travel
+                <td class="nav-sub-lable" onclick={{action 'navi' "leave.create"}}>&nbsp;Create
                     <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
                 </td>
             {{/if}}
@@ -99,16 +103,18 @@
 
 
 
+
             <tr>
-              <td class="nav-icon bk-green"><span class="glyphicon glyphicon-retweet " aria-hidden="true"></span></td>
-              <td class="nav-lable" onclick={{action 'switch'}}>&nbsp;System Switch
+              <td class="nav-icon bk-green"><span class="glyphicon glyphicon-list-alt " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'navi' "report"}}>&nbsp;Report
                   <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
               </td>
             </tr>
 
+
             <tr>
-              <td class="nav-icon bk-cran"><span class="glyphicon glyphicon-list-alt " aria-hidden="true"></span></td>
-              <td class="nav-lable" onclick={{action 'navi' "report"}}>&nbsp;Report
+              <td class="nav-icon bk-cran"><span class="glyphicon glyphicon-wrench " aria-hidden="true"></span></td>
+              <td class="nav-lable" onclick={{action 'navi' "config"}}>&nbsp;Config
                   <span class="glyphicon glyphicon-chevron-right right" aria-hidden="true"></span>
               </td>
             </tr>
@@ -131,16 +137,17 @@
 
     </div>
 
-    <div  class="col-xs-2 col-md-10 col-xs-offset-2 col-md-offset-2 ">
-    <div class="well content" >
+    <div  class=" col-md-10 container-box" >
+
+    <div class="well content">
     {{yield}}
+    </div>
+
+
       <button {{action 'jumpToTop'}}type="button" class=" toTop btn btn-default btn-lg">
-
           <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-
       </button>
 
-    </div>
           
     </div>
   </div>

@@ -20,9 +20,12 @@ body {
 .container.loginBox {
   	margin-top:70px;
     max-width: 520px;
-
 }
 
+.container-box {
+  position: relative;
+  left:210px;
+}
 
 .topBox {
     margin-top:20px;
@@ -161,9 +164,9 @@ td.header {
 }
 
 .side-nav {
-  min-width: 200px;
+  width: 200px;
   position: fixed;
-  margin-right: 50px;
+  margin-right: 5px;
   padding-right: 0;
   padding-left: 0;
   padding-top:0;
@@ -174,7 +177,7 @@ td.header {
 }
 
 .content {
-  min-width: 700px;
+  min-width: 650px;
 }
 
 .well {
@@ -372,3 +375,12 @@ td.nav-sub-lable:hover {
 .list-page:hover{
   cursor: pointer!important;
 }
+
+.toggle-icon {
+  zoom:0.5;
+}
+
+.toggle-icon:hover {
+  cursor: pointer;
+
+}  

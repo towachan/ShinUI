@@ -1,6 +1,220 @@
 
-{{dash-board category="createdByMe" list=(action "listLeaves") header="Leaves Created by Me" tbHead=tbHead rowHead=rowHead tbBody=model.createdByMe}}
+<div class="page-header">
+<h1>Leave
+        <span class="glyphicon toggle-icon {{if leaveShow "glyphicon-minus" "glyphicon-plus "}}" aria-hidden="true" id="leave-toggle" onclick={{action "toggle" "leaveShow"}}></span>
+</h1>
+</div>
 
-{{dash-board category="pendOnMe" list=(action "listLeaves") header="Leaves Pend On Me" tbHead=tbHead rowHead=rowHead tbBody=model.pendOnMe}}
+{{#if leaveShow}}
+
+{{dash-board category="createdByMe" list=(action "listLeaves") header="Created by Me" tbHead=tbHead rowHead=rowHead tbBody=model.createdByMe}}
+
+{{dash-board category="pendOnMe" list=(action "listLeaves") header="Pend On Me" tbHead=tbHead rowHead=rowHead tbBody=model.pendOnMe}}
+
+<div class="row">
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td> </td>
+					<td><b>Draft</b></td>
+					<td><b>Pending</b></td>
+					<td><b>Approved</b></td>
+					<td><b>Rejected</b></td>
+					<td><b>Cancelled</b></td>
+					<td><b>Total</b></td>
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><b>user1</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>15</td>
+				</tr>
+				
+				<tr>
+					<td><b>user2</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>15</td>
+				</tr>
+
+				<tr>
+					<td><b>Total</b></td>
+					<td>2</td>
+					<td>4</td>
+					<td>6</td>
+					<td>8</td>
+					<td>10</td>
+					<td>30</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td> </td>
+					<td><b>Annual</b></td>
+					<td><b>Sick</b></td>
+					<td><b>Total</b></td>
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><b>user1</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				
+				<tr>
+					<td><b>user2</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+
+				<tr>
+					<td><b>Total</b></td>
+					<td>2</td>
+					<td>4</td>
+					<td>6</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>
+
+</div>
+{{/if}}
+
+<div class="page-header">
+<h1>Travel
+        <span class="glyphicon toggle-icon {{if travelShow "glyphicon-minus" "glyphicon-plus "}}" aria-hidden="true" id="travel-toggle" onclick={{action "toggle" "travelShow"}}></span>
+</h1>
+</div>
+
+{{#if travelShow}}
+
+<div class="row">
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td> </td>
+					<td><b>Draft</b></td>
+					<td><b>Pending</b></td>
+					<td><b>Approved</b></td>
+					<td><b>Rejected</b></td>
+					<td><b>Cancelled</b></td>
+					<td><b>Total</b></td>
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><b>user1</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>15</td>
+				</tr>
+				
+				<tr>
+					<td><b>user2</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>15</td>
+				</tr>
+
+				<tr>
+					<td><b>Total</b></td>
+					<td>2</td>
+					<td>4</td>
+					<td>6</td>
+					<td>8</td>
+					<td>10</td>
+					<td>30</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td> </td>
+					<td><b>Annual</b></td>
+					<td><b>Sick</b></td>
+					<td><b>Total</b></td>
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><b>user1</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				
+				<tr>
+					<td><b>user2</b></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+
+				<tr>
+					<td><b>Total</b></td>
+					<td>2</td>
+					<td>4</td>
+					<td>6</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>
+
+</div>
+{{/if}}
 
 {{outlet}}

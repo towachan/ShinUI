@@ -50,7 +50,7 @@ export default Ember.Route.extend({
 				if(currentUser === approver && status === "pending"){
 					isApprove = true;
 				}
-				if(currentUser === requestor && status === "pending"){
+				if(currentUser === requestor && (status === "approved" || status === "rejected")){
 					isCancel = true;
 				}
 				if(currentUser === requestor && status === "draft"){

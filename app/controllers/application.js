@@ -32,7 +32,12 @@ export default Ember.Controller.extend({
 		}
 		var spinner = new Spinner(opts);
 		this.set('spinner', spinner);
+		$('[data-toggle="tooltip"]').tooltip();
 	},
+	ww: window.innerWidth,
+	width: function(){
+		console.log(this.get('ww'));
+	}.property('ww'),
 
 	isLogin: function(){
 		if(this.get('currentPath').toString().indexOf("login") > -1 || this.get('currentPath').toString().indexOf("quickApprove") > -1){

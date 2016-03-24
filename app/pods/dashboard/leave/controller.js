@@ -6,8 +6,21 @@ export default Ember.Controller.extend({
 	tbHead: [" ", "Draft", "Pending", "Approved", "Rejected","Cancelled", "Total"],
 	rowHead: [ "Annual", "Sick", "Total"],
 	listController: Ember.inject.controller('leave.list'),
+	leaveShow: true,
+	travelShow: false,
 
 	actions:{
+
+		toggle: function(db) {
+			var isShow = this.get(db);
+			if(isShow){
+				this.set(db, false);
+			}
+			else{
+				this.set(db, true);
+			}
+		},
+
 		listLeaves: function(position){
 			console.log(position);
 			position.row = this.get('dashboardData').firstCaseChg(position.row, 0);

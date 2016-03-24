@@ -21,15 +21,15 @@ export default Ember.Controller.extend({
 	],
 
 	orderByArr: [
-		{val: 1, name: "Ascending"},
-		{val: 0, name: "Descending"}
+		{val: 0, name: "Descending"},
+		{val: 1, name: "Ascending"}
 	],
 
 	pageUnitArr: [
-		{val:2, name:"2"},
-		{val:3, name:"3"},
+		{val:10, name:"10"},
 		{val:4, name:"4"},
-		{val:10, name:"10"}
+		{val:3, name:"3"},
+		{val:2, name:"2"}
 	],
 
 

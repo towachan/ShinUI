@@ -22,6 +22,7 @@ Router.map(function() {
   });
   this.route('report');
   this.route('support');
+  this.route('config');
 });
 
 export default Router;

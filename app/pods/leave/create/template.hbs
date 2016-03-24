@@ -39,21 +39,24 @@
 
 	</div>
 
+	{{flow-chat isCreate="true"}}
+
+
 	<div class="sub-header">
 		<h2>Submit Leave Request</h2>
 	</div>
 	
 		<div class="row">
-			{{#unless isSubmit}}
+			{{#if errShow}}
 				<div class="col-lg-7 col-lg-offset-1">
-					<div class="alert alert-danger" role="alert">Error! {{errorMsg}}</div>
+					<div class="alert alert-danger" role="alert">Error! {{err}}</div>
 				</div>
-			{{/unless}}
+			{{/if}}
 
 			<div class="col-lg-4 right">
 				<div class="btn-group right" role="group">
-					<button type="submit" class="btn btn-primary btn-lg " {{action 'submit' "submit"}} disabled={{submitDisabled}}>Submit</button>			
-					<button type="submit" class="btn btn-default btn-lg " {{action 'submit' "save"}} disabled={{submitDisabled}}>Save</button>			
+					<button type="submit" class="btn btn-primary btn-lg " {{action 'submit' "submit"}} >Submit</button>			
+					<button type="submit" class="btn btn-default btn-lg " {{action 'submit' "save"}} >Save</button>			
 				</div>
 			</div>
 		</div>
@@ -62,7 +65,7 @@
 
 	<div class="row">
 
-		<div class="col-md-2 col-sm-4 create-label">
+		<div class="col-md-2 col-sm-4 col-xs-5 create-label">
 			<ul class="create-label-group">
 			  <li class="create-label-item">Requestor ID</li>
 			  <li class="create-label-item">Requestor Name</li>
@@ -73,7 +76,7 @@
 			</ul>
 		</div>
 
-		<div class="col-md-3 col-sm-6 create-data">
+		<div class="col-md-3 col-sm-6 col-xs-7 create-data">
 			<ul class="create-data-group">
 				<div class="input-group create-data-input" >
 					{{input type="text" class="form-control" value=currentUser.username disabled="true"}}
@@ -95,7 +98,7 @@
 		</div>
 		
 
-		<div class="col-md-2 col-sm-4 create-label">
+		<div class="col-md-2 col-sm-4 col-xs-5 create-label">
 			<ul class="create-label-group">
 			  <li class="create-label-item mandatory">Leave Type</li>
 			  <li class="create-label-item mandatory">Is Core Leave</li>
@@ -105,7 +108,7 @@
 			</ul>
 		</div>
 
-		<div class="col-md-4 col-sm-6 create-data">
+		<div class="col-md-4 col-sm-6 col-xs-7 create-data">
 			<ul class="create-data-group">
 				<div class="input-group create-data-input" >
 					<select class="form-control" id="leaveType" onchange={{action "leaveTypeChange"}}>

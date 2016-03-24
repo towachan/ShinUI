@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
 	isCoreLeave: 0,
 	leaveTypes: ["Annual", "Sick"],
 	// errorMsg: null,
+	errShow: false,
 	isError: null,
 	dateValidation: null,
 	comments: null,
@@ -135,12 +136,10 @@ export default Ember.Controller.extend({
 	submitDisabled: "disabled",
 	isSubmit: function(){
 		if(this.get('dateValidation') && this.get('leaveDaysValidation')){
-			this.set('submitDisabled',false);
 			return true;
 		}
 		else{
-			this.set('submitDisabled', "disabled");
- 			return false;
+			return false;
 		}
 
 	}.property('dateValidation','leaveDaysValidation'),
@@ -166,7 +165,14 @@ export default Ember.Controller.extend({
 		},
 
 		submit: function(type){
-
+			if(!this.get('isSubmit')){
+				this.set('err', this.get('errorMsg'));
+				this.set('errShow', true);
+				return;
+			}
+			else{
+				this.set('errShow', false);
+			}
 			var data = {
 				cmd: 'createLeave',
 				username: this.get('currentUser').username,
